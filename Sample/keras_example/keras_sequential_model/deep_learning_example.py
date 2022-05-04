@@ -5,7 +5,6 @@ from keras.layers import Dense
 from keras.models import model_from_json
 import numpy
 import os
-
 from sklearn import metrics
 
 def load_data():
