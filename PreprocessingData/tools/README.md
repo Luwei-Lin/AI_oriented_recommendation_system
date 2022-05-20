@@ -29,13 +29,13 @@
 |White     |11|
 |Yellow    |12|
 
-## 3.Pattern Map
+## 3. Pattern Map
 
 |pattern   |number|
 | ------------ | ------ |
 |Unknown      |    0    |
-|Abstract  |1|
-|Camouflage|2|
+|Abstract     |1|
+|Camouflage   |2|
 |Checks & Plaid|3|
 |Floral    |4|
 |Graphic   |5|
@@ -43,12 +43,13 @@
 |Striped   |7|
 |Tweed     |8|
 |Denim     |9|
+|No Pattern|10|
 
 ## 4. Bucket Map
 
 |bucket_type   | number |
 | ------------ | ------ |
-|Unknown      |    0    |
+|Unknown       |    0   |
 |Athletic      |    1   |
 |Bohemian      |    2   |
 |Chic          |    3   |
@@ -70,11 +71,11 @@
 |product_type  | number|
 | ------------ | ------|
 |Unknown      |    0    |
-|shoes         |   1   |
-|tops          |   2   |
-|bottoms       |   3   |
-|other_clothing|   4   |
-|beauty        |   5   |
-|accessories   |   6   |
-|homeware      |   7   |
-|other         |   8   |
+|Shoes         |   1   |
+|Tops          |   2   |
+|Bottoms       |   3   |
+|Other_clothing|   4   |
+|Beauty        |   5   |
+|Accessories   |   6   |
+|Homeware      |   7   |
+|Other         |   8   |
