@@ -1,10 +1,11 @@
+import spacy
+from spacy.matcher import Matcher
+from spacy import displacy
 import re
 from tkinter.messagebox import NO
 from certifi import contents
 
-import spacy
-from spacy.matcher import Matcher
-from spacy import displacy
+
 
 def clean_tags_text(raw_tags, raw_title, raw_product_type):
     tags = ''
@@ -35,7 +36,9 @@ def clean_product_description(raw_product_description):
     #remove all ' or " 
     product_description = raw_product_description.lower()
     contents = re.sub('"', "", product_description)
-    contents = re.sub("'", "", product_description)
+    contents = re.sub("'", "", contents)
+    contents = re.sub('&amp', 'and', contents)
+    
     return contents
 
 def create_patterns_matcher():
@@ -83,6 +86,7 @@ def create_patterns_matcher():
         "t",
         "tee",
         'tank',
+        "crop",
         "croptee",
         "croptop",
         "tanktop"]}}]
@@ -117,7 +121,8 @@ def create_patterns_matcher():
         "overall",
         "activewear",
         "sleepwear",
-        "romper"
+        "romper",
+        "cloak"
     ]}}]
     other_clothing_pattern_2 = [{'LOWER': 'jumpsuit'},
                                 {'IS_PUNCT': True, 'OP': '?'},
@@ -130,6 +135,7 @@ def create_patterns_matcher():
     beauty_pattern_3 = [{"LEMMA": 'cosmetic'}]
     beauty_pattern_4 = [{"LOWER": 'hair'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'LOWER': 'care'}]
     beauty_pattern_5 = [{"LOWER": 'nail'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'LOWER': 'care'}]
+    beauty_pattern_6 = [{'LEMMA': {'IN': ['skin', 'hair', 'nail', 'beauty']}}]
     
     accessories_pattern_1 = [{'LEMMA': { 'IN' : [
             "headwear",
@@ -185,7 +191,7 @@ def create_patterns_matcher():
     matcher.add("SHOES_TYPE", [shoes_pattern_1, shoes_pattern_2, shoes_pattern_3])
     matcher.add("OTHER_CLOTHING_TYPE", [other_clothing_pattern_1, other_clothing_pattern_2])
     matcher.add("BEAUTY_TYPE", [beauty_pattern_1, beauty_pattern_2, beauty_pattern_3, beauty_pattern_3, 
-                                beauty_pattern_4, beauty_pattern_5])
+                                beauty_pattern_4, beauty_pattern_5, beauty_pattern_6])
     matcher.add("ACCESSORIES_TYPE", [accessories_pattern_1,  accessories_pattern_2,
                                     accessories_pattern_3, accessories_pattern_4])
     matcher.add('HOMEWARE_TYPE', [homware_pattern_1, homware_pattern_2, homware_pattern_3, homware_pattern_4,
@@ -212,13 +218,20 @@ def main():
     and a top knot featuring a matching Paradise scrunchie.* \
     Final Sale Item  Grab the matching Scrunchie and Own It!'
     nlp = spacy.load("en_core_web_sm")
-    test_text_2 = "cotopaxi outerwear womens, cotopaxi women's teca half-zip windbreaker postcard, jackets"
-    test_text_2 = re.sub(',', ' ', test_text_2)
-    tokens = nlp (test_text_2)
-    
-    l = [(t, t.lemma_, t.pos_) for t in tokens]
-    
-    print (l)
-    test_matcher(test_text_2)
+    while (1):
+        
+        t2 = input("Please enter the text you want to extract the product key words (press 'q' to quit): ") 
+        if t2 == 'q':
+            print("QUIT")
+            break
+        test_text_2 = t2
+        
+        #test_text_2 = re.sub(',', ' ', t2)#if we want to use tags+ title + product_type
+        #tokens = nlp (test_text_2)
+        # l = [(t, t.lemma_, t.pos_) for t in tokens]
+        #print (l)
+        print('---------------------Result-----------------------')
+        test_matcher(test_text_2)
+        print('-------------MATCHER PROCESSING DONE--------------\n') 
 
 main()

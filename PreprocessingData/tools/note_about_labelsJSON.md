@@ -25,6 +25,15 @@
 
 ## Update May 19
 
-1. add 'tee' in 'tops'
+1. add 'tee' and 't' in 'tops'
 2. 'tanktop' in tops instead of 'tank top'
-3. 'croptop' and 'croptee' is new item found and could be added in 'tops'
+3. 'crop', 'croptop' and 'croptee' are new items found and could be added in 'tops' or 'shirt'
+
+## Update May 21
+
+1. can add 'Puzzle' in other
+2. can add 'Clip' in accessories (hair clips)
+3. can add 'Scrunchies' in accessories(hair scrunchie)
+4. There are some food types (for now we add to 'other')
+5. new Item 'Cloak' is found , which could be added to 'other_clothing'? 
+
