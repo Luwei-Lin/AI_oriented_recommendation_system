@@ -2,8 +2,6 @@ import spacy
 from spacy.matcher import Matcher
 from spacy import displacy
 import re
-from tkinter.messagebox import NO
-from certifi import contents
 
 
 
@@ -40,7 +38,202 @@ def clean_product_description(raw_product_description):
     contents = re.sub('&amp', 'and', contents)
     
     return contents
+'''
+create_patterns 
 
+return list[list[Dict(str:any)]]
+
+
+'''
+def create_patterns():
+    product_patterns = [{'lemma' : {'IN' : ['shoe', 'top', 'bottom', 'clothing', 'beauty', 'accessory', 'homeware', 'other']}, 'POS': {'NOT_IN':['ADJ']}}]
+    
+    bottom_pattern_1 = [{'LEMMA': {'IN': [
+            'legging', 
+            'bottom', 
+            'leg', 
+            "short",
+            "skirt",
+            "jogger",
+            "jean",
+            "legging",
+            "athletic boxer",
+            "sweatpant"] } } ]
+    bottom_pattern_2 = [{'LOWER' : 'athletic'},
+                        {'IS_PUNCT' : True, 'OP' : '?'},
+                        {'LOWER' : 'boxer'}]
+    
+    tops_pattern_1 = [
+        {'LOWER': 't'},
+        {'IS_PUNCT' : True, 'OP': '?'},
+        {'LOWER': 'shirt'},
+        ]
+    tops_pattern_2 = [{'LEMMA': {'IN': [
+        "jacket",
+        "camisole",
+        "shirt",
+        "coat",
+        "sweater",
+        "blouse",
+        "kimono",
+        "cardigan",
+        "hoodie",
+        "vest",
+        "poncho",
+        "blazer",
+        "sweatshirt",
+        "2aistcoat",
+        "bralette",
+        "bra",
+        "jersey",
+        "t",
+        "tee",
+        'tank',
+        "crop",
+        "croptee",
+        "croptop",
+        "tanktop"]}}]
+    tops_pattern_3 = [{'LEMMA': 'tank'}, {'IS_PUNCT': True, 'OP': '?'}, {'LEMMA': 'top'}]
+    
+    shoes_pattern_1 = [{ 'LEMMA': { 'IN' : [
+        "slipper",
+        "flat shoe",
+        "sandal",
+        "heel",
+        "boot",
+        "skate shoe",
+        "wedge",
+        "snowshoe",
+        "clog",
+        "sneaker",
+        "oxford",
+        "loafer"
+    ]}}]
+    shoes_pattern_2 = [{'LOWER': 'flat'},
+        {'IS_PUNCT' : True, 'OP' : '?'},
+        {'LOWER': 'shoe'},]
+    shoes_pattern_3 = [{'LOWER': 'oxford'},
+        {'IS_PUNCT' : True, 'OP' : '?'},
+        {'LOWER': 'loafer'}]
+    
+    other_clothing_pattern_1 = [{'LEMMA' : {'IN': [
+        "swimwear",
+        "dress",
+        "jumpsuit",
+        "underwear",
+        "overall",
+        "activewear",
+        "sleepwear",
+        "romper",
+        "cloak"
+    ]}}]
+    other_clothing_pattern_2 = [{'LOWER': 'jumpsuit'},
+                                {'IS_PUNCT': True, 'OP': '?'},
+                                {'LOWER': 'and'},
+                                {'IS_PUNCT': True, 'OP': '?'},
+                                {'LOWER': 'romper'}]
+    
+    beauty_pattern_1 = [{"LOWER": 'skin'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'LOWER': 'care'}]
+    beauty_pattern_2 = [{"LOWER": 'beauty'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'LEMMA': 'tool'}]
+    beauty_pattern_3 = [{"LEMMA": 'cosmetic'}]
+    beauty_pattern_4 = [{"LOWER": 'hair'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'LOWER': 'care'}]
+    beauty_pattern_5 = [{"LOWER": 'nail'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'LOWER': 'care'}]
+    beauty_pattern_6 = [{'LEMMA': {'IN': ['skin', 'hair', 'nail', 'beauty']}}]
+    
+    accessories_pattern_1 = [{'LEMMA': { 'IN' : [
+            "headwear",
+            "jewelry",
+            'bag',
+            'scarf',
+            'sock',
+            'tight',
+            'belt',
+            'collar',
+            'sticker',
+            'cologne',
+            'heel cover',
+            'backpack',
+            'glove',
+            'headband',
+            'mask',
+            'sunglass',
+            'shawl',
+            'wallet',
+            'tie',
+            'pocket square',
+            'watch',
+            'shoe lace'
+            ] }, 'POS': {'NOT_IN' :['VERB']}}] #tight, headwear
+    accessories_pattern_2 = [{'lemma': 'heel'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'cover'}]
+    accessories_pattern_3 = [{'lemma': 'shoe'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'lace'}]
+    accessories_pattern_4 = [{'lemma': 'pocket'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'square'}]
+    
+    homware_pattern_1 = [{'lemma': {'IN': [ 
+                    'drinkware',
+                    'soap',
+                    'candle',
+                    'blanket',
+                    'towel',
+                    'canteen',
+                    'rug',
+                    'mat'
+                    ]}}]
+    homware_pattern_2 = [{'lemma':'home'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'decoration'}]
+    homware_pattern_3 = [{'lemma':'bath'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'bomb'}]
+    homware_pattern_4 = [{'lemma':'bath'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'robe'}]
+    homware_pattern_5 = [{'lemma':'air'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'freshener'}]
+    homware_pattern_6 = [{'lemma':'shower'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'curtain'}]
+    homware_pattern_7 = [{'lemma':'bath'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'mat'}]
+    homware_pattern_8 = [{'lemma':'duvet'}, {'IS_PUNCT' : True, 'OP' : '?'}, {'lemma': 'cover'}]
+    
+    main_patterns = product_patterns
+    bottom_pattern = bottom_pattern_1 + bottom_pattern_2
+    tops_pattern = tops_pattern_1 + tops_pattern_2 + tops_pattern_3
+    shoes_pattern = shoes_pattern_1 + shoes_pattern_2 + shoes_pattern_3
+    other_clothing_pattern = other_clothing_pattern_1 + other_clothing_pattern_2
+    beauty_pattern = beauty_pattern_1 + beauty_pattern_2 + beauty_pattern_3 + beauty_pattern_4 + beauty_pattern_5 + beauty_pattern_6
+    accessories_pattern = accessories_pattern_1 + accessories_pattern_2 + accessories_pattern_3 + accessories_pattern_4
+    homware_pattern = homware_pattern_1 + homware_pattern_2 + homware_pattern_3 + homware_pattern_4 + homware_pattern_5 + homware_pattern_6 + homware_pattern_7 + homware_pattern_8
+    
+    first_class_pattern = main_patterns + bottom_pattern + tops_pattern + shoes_pattern + other_clothing_pattern + beauty_pattern + accessories_pattern + homware_pattern
+    
+    return first_class_pattern
+    
+def create_tops_patterns():
+    tops_pattern_1 = [
+        {'LOWER': 't'},
+        {'IS_PUNCT' : True, 'OP': '?'},
+        {'LOWER': 'shirt'},
+        ]
+    tops_pattern_2 = [{'LEMMA': {'IN': [
+        "jacket",
+        "camisole",
+        "shirt",
+        "coat",
+        "sweater",
+        "blouse",
+        "kimono",
+        "cardigan",
+        "hoodie",
+        "vest",
+        "poncho",
+        "blazer",
+        "sweatshirt",
+        "2aistcoat",
+        "bralette",
+        "bra",
+        "jersey",
+        "t",
+        "tee",
+        'tank',
+        "crop",
+        "croptee",
+        "croptop",
+        "tanktop"]}}]
+    tops_pattern_3 = [{'LEMMA': 'tank'}, {'IS_PUNCT': True, 'OP': '?'}, {'LEMMA': 'top'}]
+    tops_pattern = [tops_pattern_1] + [tops_pattern_2] + [tops_pattern_3]
+    
+    return tops_pattern
 def create_patterns_matcher():
     
     product_patterns = [{'lemma' : {'IN' : ['shoe', 'top', 'bottom', 'clothing', 'beauty', 'accessory', 'homeware', 'other']}, 'POS': {'NOT_IN':['ADJ']}}]
@@ -232,6 +425,5 @@ def main():
         #print (l)
         print('---------------------Result-----------------------')
         test_matcher(test_text_2)
-        print('-------------MATCHER PROCESSING DONE--------------\n') 
+        print('-------------MATCHER PROCESSING DONE--------------\n')
 
-main()
