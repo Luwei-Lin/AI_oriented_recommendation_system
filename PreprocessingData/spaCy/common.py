@@ -1,3 +1,4 @@
+from math import prod
 import spacy
 from spacy.matcher import Matcher
 from spacy import displacy
@@ -5,30 +6,41 @@ import re
 
 
 
-def clean_tags_text(raw_tags, raw_title, raw_product_type):
+def clean_tags_text(raw_title, raw_product_type, raw_tags):
     tags = ''
     title = ''
     product_type = ''
     
     
     if isinstance(raw_tags, str) and raw_tags is not None:
-        tags = re.sub("," , " " , raw_tags.lower())
-        
+        tags = re.sub(",", " ", raw_tags.lower())
     if isinstance(raw_title, str)and raw_title is not None:
-        title = raw_title.lower()
+        title = re.sub(",", " ", raw_title.lower())
     if isinstance(raw_product_type, str) and raw_product_type is not None :
-        product_type = re.sub("," , " " , raw_product_type.lower())
+        product_type = re.sub(",", " ", raw_product_type.lower())
     
     reg_str = '{(.*?)}'
-    tags = re.sub('"', "", tags)
+    tags = re.sub('"', "", tags)#remove inside the sentence " signs for cleaning data
     
-    contents = re.findall(reg_str, tags)
-    contents.append(title)
-    contents.append(product_type)
+    contents = title
+    #edge case: there is no any words in the title 
+    if contents == "": 
+        contents = 'NOTITLE'
+    #tags string 
+    tags_toString = str(re.findall(reg_str, tags)).removeprefix('[').removesuffix(']')
+    tags_toString = re.sub("'", "", tags_toString)
+    tags_toString = re.sub(",", " ", tags_toString)
     
-    content_output = ', '.join(contents)
     
-    return content_output
+    contents += ', ' + product_type
+    
+        
+    if product_type != "":
+        contents += ', ' + tags_toString
+    else:
+        contents += tags_toString
+        
+    return contents
 
 def clean_product_description(raw_product_description):
     #remove all ' or " 
@@ -198,8 +210,12 @@ def create_patterns():
     first_class_pattern = main_patterns + bottom_pattern + tops_pattern + shoes_pattern + other_clothing_pattern + beauty_pattern + accessories_pattern + homware_pattern
     
     return first_class_pattern
-    
+
+'''Tops patterns type for non-completed sentences
+only difference is the {'tops'POS': {'NOT_IN':['ADJ']}
+'''
 def create_tops_patterns():
+    
     tops_pattern_1 = [
         {'LOWER': 't'},
         {'IS_PUNCT' : True, 'OP': '?'},
@@ -229,11 +245,52 @@ def create_tops_patterns():
         "crop",
         "croptee",
         "croptop",
-        "tanktop"]}}]
+        "tanktop",
+        "top",
+        "coverup"]},'POS': {'IN':['NOUN']}}]
     tops_pattern_3 = [{'LEMMA': 'tank'}, {'IS_PUNCT': True, 'OP': '?'}, {'LEMMA': 'top'}]
     tops_pattern = [tops_pattern_1] + [tops_pattern_2] + [tops_pattern_3]
     
     return tops_pattern
+
+def create_tops_patterns_for_sentences():
+    tops_pattern_1 = [
+        {'LOWER': 't'},
+        {'IS_PUNCT' : True, 'OP': '?'},
+        {'LOWER': 'shirt'},
+        ]
+    tops_pattern_2 = [{'LEMMA': {'IN': [
+        "jacket",
+        "camisole",
+        "shirt",
+        "coat",
+        "sweater",
+        "blouse",
+        "kimono",
+        "cardigan",
+        "hoodie",
+        "vest",
+        "poncho",
+        "blazer",
+        "sweatshirt",
+        "2aistcoat",
+        "bralette",
+        "bra",
+        "jersey",
+        "t",
+        "tee",
+        'tank',
+        "crop",
+        "croptee",
+        "croptop",
+        "tanktop",
+        "top",
+        "coverup"]}, 'POS': {'IN':['NOUN']}}]
+    tops_pattern_3 = [{'LEMMA': 'tank'}, {'IS_PUNCT': True, 'OP': '?'}, {'LEMMA': 'top'}]
+    tops_pattern = [tops_pattern_1] + [tops_pattern_2] + [tops_pattern_3]
+    return tops_pattern
+
+
 def create_patterns_matcher():
     
     product_patterns = [{'lemma' : {'IN' : ['shoe', 'top', 'bottom', 'clothing', 'beauty', 'accessory', 'homeware', 'other']}, 'POS': {'NOT_IN':['ADJ']}}]
@@ -427,3 +484,4 @@ def main():
         test_matcher(test_text_2)
         print('-------------MATCHER PROCESSING DONE--------------\n')
 
+main()

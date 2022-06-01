@@ -1,3 +1,0 @@
-{"label":"TOPS","pattern":[{"LOWER":"t"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"shirt"}]}
-{"label":"TOPS","pattern":[{"LEMMA":{"IN":["jacket","camisole","shirt","coat","sweater","blouse","kimono","cardigan","hoodie","vest","poncho","blazer","sweatshirt","2aistcoat","bralette","bra","jersey","t","tee","tank","crop","croptee","croptop","tanktop"]}}]}
-{"label":"TOPS","pattern":[{"LEMMA":"tank"},{"IS_PUNCT":true,"OP":"?"},{"LEMMA":"top"}]}
