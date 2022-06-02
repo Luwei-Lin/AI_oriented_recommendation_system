@@ -247,7 +247,7 @@ def create_tops_patterns():
         "croptop",
         "tanktop",
         "top",
-        "coverup"]},'POS': {'IN':['NOUN']}}]
+        "coverup"]},'POS': {'NOT_IN':['ADJ']}}]
     tops_pattern_3 = [{'LEMMA': 'tank'}, {'IS_PUNCT': True, 'OP': '?'}, {'LEMMA': 'top'}]
     tops_pattern = [tops_pattern_1] + [tops_pattern_2] + [tops_pattern_3]
     
@@ -285,7 +285,7 @@ def create_tops_patterns_for_sentences():
         "croptop",
         "tanktop",
         "top",
-        "coverup"]}, 'POS': {'IN':['NOUN']}}]
+        "coverup"]}, 'POS': {'NOT_IN':['ADJ']}}]
     tops_pattern_3 = [{'LEMMA': 'tank'}, {'IS_PUNCT': True, 'OP': '?'}, {'LEMMA': 'top'}]
     tops_pattern = [tops_pattern_1] + [tops_pattern_2] + [tops_pattern_3]
     return tops_pattern
@@ -305,7 +305,7 @@ def create_patterns_matcher():
             "jean",
             "legging",
             "athletic boxer",
-            "sweatpant"] } } ]
+            "sweatpant"] },'POS': {'NOT_IN':['ADJ']} } ]
     bottom_pattern_2 = [{'LOWER' : 'athletic'},
                         {'IS_PUNCT' : True, 'OP' : '?'},
                         {'LOWER' : 'boxer'}]
@@ -483,5 +483,3 @@ def main():
         print('---------------------Result-----------------------')
         test_matcher(test_text_2)
         print('-------------MATCHER PROCESSING DONE--------------\n')
-
-main()
