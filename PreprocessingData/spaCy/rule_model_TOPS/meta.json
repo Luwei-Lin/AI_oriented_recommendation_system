@@ -125,6 +125,12 @@
 
     ],
     "entity_ruler":[
+      "ACCESSORIES",
+      "BEAUTY",
+      "BOTTOMS",
+      "HOMEWARE",
+      "OTHER_CLOTHING",
+      "SHOES",
       "TOPS"
     ]
   },

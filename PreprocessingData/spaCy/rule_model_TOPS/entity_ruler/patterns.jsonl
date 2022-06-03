@@ -1,3 +1,58 @@
 {"label":"TOPS","pattern":[{"LOWER":"t"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"shirt"}]}
 {"label":"TOPS","pattern":[{"LEMMA":{"IN":["jacket","camisole","shirt","coat","sweater","blouse","kimono","cardigan","hoodie","vest","poncho","blazer","sweatshirt","2aistcoat","bralette","bra","jersey","t","tee","tank","crop","croptee","croptop","tanktop","top","coverup"]},"POS":{"NOT_IN":["ADJ"]}}]}
 {"label":"TOPS","pattern":[{"LEMMA":"tank"},{"IS_PUNCT":true,"OP":"?"},{"LEMMA":"top"}]}
+{"label":"TOPS","pattern":[{"LOWER":"t"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"shirt"}]}
+{"label":"TOPS","pattern":[{"LEMMA":{"IN":["jacket","camisole","shirt","coat","sweater","blouse","kimono","cardigan","hoodie","vest","poncho","blazer","sweatshirt","2aistcoat","bralette","bra","jersey","t","tee","tank","crop","croptee","croptop","tanktop","top","coverup"]},"POS":{"NOT_IN":["ADJ"]}}]}
+{"label":"TOPS","pattern":[{"LEMMA":"tank"},{"IS_PUNCT":true,"OP":"?"},{"LEMMA":"top"}]}
+{"label":"BOTTOMS","pattern":[{"LEMMA":{"IN":["legging","bottom","leg","short","skirt","jogger","jean","legging","athletic boxer","sweatpant"]},"POS":{"NOT_IN":["ADJ"]}}]}
+{"label":"BOTTOMS","pattern":[{"LOWER":"athletic"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"boxer"}]}
+{"label":"BOTTOMS","pattern":[{"LEMMA":{"IN":["legging","bottom","leg","short","skirt","jogger","jean","legging","athletic boxer","sweatpant"]},"POS":{"NOT_IN":["ADJ"]}}]}
+{"label":"BOTTOMS","pattern":[{"LOWER":"athletic"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"boxer"}]}
+{"label":"OTHER_CLOTHING","pattern":[{"LEMMA":{"IN":["swimwear","dress","jumpsuit","underwear","overall","activewear","sleepwear","romper","cloak"]}}]}
+{"label":"OTHER_CLOTHING","pattern":[{"LOWER":"jumpsuit"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"and"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"romper"}]}
+{"label":"OTHER_CLOTHING","pattern":[{"LEMMA":{"IN":["swimwear","dress","jumpsuit","underwear","overall","activewear","sleepwear","romper","cloak"]}}]}
+{"label":"OTHER_CLOTHING","pattern":[{"LOWER":"jumpsuit"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"and"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"romper"}]}
+{"label":"SHOES","pattern":[{"LEMMA":{"IN":["slipper","flat shoe","sandal","heel","boot","skate shoe","wedge","snowshoe","clog","sneaker","oxford","loafer"]}}]}
+{"label":"SHOES","pattern":[{"LOWER":"flat"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"shoe"}]}
+{"label":"SHOES","pattern":[{"LOWER":"oxford"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"loafer"}]}
+{"label":"SHOES","pattern":[{"LEMMA":{"IN":["slipper","flat shoe","sandal","heel","boot","skate shoe","wedge","snowshoe","clog","sneaker","oxford","loafer"]}}]}
+{"label":"SHOES","pattern":[{"LOWER":"flat"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"shoe"}]}
+{"label":"SHOES","pattern":[{"LOWER":"oxford"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"loafer"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":{"IN":["drinkware","soap","candle","blanket","towel","canteen","rug","mat"]}}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"home"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"decoration"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"bath"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"bomb"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"bath"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"robe"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"air"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"freshener"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"air"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"freshener"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"shower"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"curtain"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"bath"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"mat"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"duvet"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"cover"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":{"IN":["drinkware","soap","candle","blanket","towel","canteen","rug","mat"]}}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"home"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"decoration"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"bath"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"bomb"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"bath"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"robe"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"air"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"freshener"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"air"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"freshener"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"shower"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"curtain"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"bath"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"mat"}]}
+{"label":"HOMEWARE","pattern":[{"lemma":"duvet"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"cover"}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"skin"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"care"}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"beauty"},{"IS_PUNCT":true,"OP":"?"},{"LEMMA":"tool"}]}
+{"label":"BEAUTY","pattern":[{"LEMMA":"cosmetic"}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"hair"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"care"}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"nail"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"care"}]}
+{"label":"BEAUTY","pattern":[{"LEMMA":{"IN":["skin","hair","nail","beauty"]}}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"skin"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"care"}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"beauty"},{"IS_PUNCT":true,"OP":"?"},{"LEMMA":"tool"}]}
+{"label":"BEAUTY","pattern":[{"LEMMA":"cosmetic"}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"hair"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"care"}]}
+{"label":"BEAUTY","pattern":[{"LOWER":"nail"},{"IS_PUNCT":true,"OP":"?"},{"LOWER":"care"}]}
+{"label":"BEAUTY","pattern":[{"LEMMA":{"IN":["skin","hair","nail","beauty"]}}]}
+{"label":"ACCESSORIES","pattern":[{"LEMMA":{"IN":["headwear","jewelry","bag","scarf","sock","tight","belt","collar","sticker","cologne","heel cover","backpack","glove","headband","mask","sunglass","shawl","wallet","tie","pocket square","watch","shoe lace"]},"POS":{"NOT_IN":["VERB"]}}]}
+{"label":"ACCESSORIES","pattern":[{"lemma":"heel"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"cover"}]}
+{"label":"ACCESSORIES","pattern":[{"lemma":"shoe"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"lace"}]}
+{"label":"ACCESSORIES","pattern":[{"lemma":"pocket"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"square"}]}
+{"label":"ACCESSORIES","pattern":[{"LEMMA":{"IN":["headwear","jewelry","bag","scarf","sock","tight","belt","collar","sticker","cologne","heel cover","backpack","glove","headband","mask","sunglass","shawl","wallet","tie","pocket square","watch","shoe lace"]},"POS":{"NOT_IN":["VERB"]}}]}
+{"label":"ACCESSORIES","pattern":[{"lemma":"heel"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"cover"}]}
+{"label":"ACCESSORIES","pattern":[{"lemma":"shoe"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"lace"}]}
+{"label":"ACCESSORIES","pattern":[{"lemma":"pocket"},{"IS_PUNCT":true,"OP":"?"},{"lemma":"square"}]}
