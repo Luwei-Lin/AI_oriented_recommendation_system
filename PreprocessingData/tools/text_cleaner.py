@@ -60,6 +60,11 @@ def clean_product_description(raw_product_description):
     contents = re.sub("'", "", contents)
     contents = re.sub("\n", "", contents)
     contents = re.sub('&amp;', 'and', contents)
+    contents = re.sub("'s", " is", contents)
+    contents = re.sub("'ll", " will", contents)
+    contents = re.sub("'ve", " have", contents)
+    contents = re.sub("'m", " am", contents)
+    contents = re.sub("\'", "'", contents)
     return contents
 
 

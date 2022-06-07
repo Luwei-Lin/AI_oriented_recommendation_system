@@ -1,4 +1,4 @@
-from math import prod
+import lxml.html.clean
 import spacy
 from spacy.matcher import Matcher
 from spacy import displacy
@@ -46,22 +46,40 @@ Output: After processing body_html String
 
 '''
 def cleanHtml(html):
-    return re.sub("&amp", "and", re.sub("\n", "",  re.sub(re.compile('<.*?>'), '', html)))
+    res = lxml.html.clean.clean_html(html)
+    res = re.sub(re.compile('<.*?>'), '', html)
+    cleantext = re.sub("\n", "", res)
+    cleantext = re.sub("¬†", " ", res)
+    return cleantext
+
 '''
-From cleanHtml to do one more cleaning
+After cleanHtml() to do one more cleaning for product description. 
 '''
 def clean_product_description(raw_product_description):
     #remove all ' or " 
-    product_description = raw_product_description.lower()
+    product_description = raw_product_description
     contents = re.sub('"', "", product_description)
     contents = re.sub("'", "", contents)
-    contents = re.sub('&amp', 'and', contents)
+    contents = re.sub("\n", "", contents)
+    contents = re.sub('&amp;', 'and', contents)
     return contents
+
+def parse_train_data_forDB(text, matcher):
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(text)
+    #ignore for now 
+    #detections = [(doc[start:end].start_char, doc[start:end].end_char, 'TOPS') for idx, start, end in type_matcher(doc) ]
+    
+    spans = [doc[start:end] for _, start, end in matcher(doc)]
+    detections =  [(span.start_char, span.end_char, 'TOPS') for span in spacy.util.filter_spans(spans)] 
+    #remove duplicates or overlaps using spacy.util.filter_spans
+    
+    return (doc.text, detections)
+
 '''
 create_patterns 
 return list[list[Dict(str:any)]]
 '''
-
 def create_patterns():
     #all categories
     product_patterns = [{'lemma' : {'IN' : ['shoe', 'top', 'bottom', 'clothing', 'beauty', 'accessory', 'homeware', 'other']}, 'POS': {'NOT_IN':['ADJ']}}]
@@ -385,6 +403,7 @@ def creat_homeware_patterns():
     homeware_patterns = [homeware_pattern_1] + [homeware_pattern_2] + [homeware_pattern_3] + [homeware_pattern_4] + [homeware_pattern_5] + [homeware_pattern_5] + [homeware_pattern_6] + [homeware_pattern_7] + [homeware_pattern_8]
     return homeware_patterns
 
+
 def create_patterns_matcher():
     
     product_patterns = [{'lemma' : {'IN' : ['shoe', 'top', 'bottom', 'clothing', 'beauty', 'accessory', 'homeware', 'other']}, 'POS': {'NOT_IN':['ADJ']}}]
@@ -543,7 +562,6 @@ def create_patterns_matcher():
     matcher.add('PRODUCT_TYPE', [product_patterns])
     
     return matcher
-    
 
 def test_matcher(contents):
     assert(contents is not None)

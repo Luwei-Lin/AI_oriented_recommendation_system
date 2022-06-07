@@ -249,7 +249,7 @@
       }
     ],
     "sub_product_type":[{
-        "sandal": [
+        "sandals": [
           "Slides",
           "Flip Flops",
           "Jellies",
@@ -259,6 +259,7 @@
           "Espadrilles",
           "Platforms"
         ],
+        
         "sneakers":[
           "High Top Sneakers",
           "Slip-on Sneakers",
@@ -322,7 +323,8 @@
         ],
 
         "activewear":[
-          "Base Layers & Fleece Jackets",
+          "Base Layers",
+          "Fleece Jackets",
           "Training",
           "Running",
           "Yoga",
@@ -384,7 +386,7 @@
           "Cocktail Dress"
         ],
         "swimwear":[
-          "One-piece",
+          "One piece",
           "Bikini top",
           "Bikini bottom",
           "Tankini",
@@ -428,12 +430,13 @@
           "straw hat",
           "fedora",
           "caps",
-          "baseball hats",
-          "sun hats",
+          "baseball hat",
+          "sun hat",
           "snap back",
-          "skateboard helmets",
-          "Snow Helmelts"
+          "skateboard helmet",
+          "Snow Helmelt"
         ],
+
         "cosmetics":[
           "Foundation",
           "Concealer",
@@ -454,6 +457,7 @@
           "Bronzer"
 
         ],
+
         "skin_care":[
           "Hand and Body Lotion",
           "Body Wash & Shower Gel",
@@ -469,6 +473,7 @@
           "Face Serums",
           "Masks"
         ],
+
         "beauty tools":[
           "Brush Sets",
           "Face Brushes",
@@ -478,6 +483,7 @@
           "Brush Cleaners"
           
         ],
+
         "hair care":[
           "Shampoo",
           "Conditioner",
@@ -495,6 +501,7 @@
           "Curling Irons",
           "Hair Brushes & Combs"
         ],
+
         "nail care":[
           "Nail care",
           "Nail Polish"
