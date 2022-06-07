@@ -11,7 +11,7 @@ def readJsonFile(filename):
         return json.load(dataFile)
 
 def cleanHtml(html):
-    return re.sub("\n", "",  re.sub(re.compile('<.*?>'), '', html))
+    return re.sub("&amp", "and", re.sub("\n", "",  re.sub(re.compile('<.*?>'), '', html)))
 
 def createDirIfNotExist(dirPath):
     Path(workingDir + "/" + dirPath).mkdir(parents=True, exist_ok=True)
@@ -56,7 +56,8 @@ if __name__ == "__main__":
                 else:
                     filteredData[columnName].append(row[columnName])
                     
-            '''//download images.
+            #download images.
+            '''
             else:
                 for image in json.loads(row['images']):
                     createDirIfNotExist(str(row["id"]))
@@ -65,8 +66,9 @@ if __name__ == "__main__":
                         dest += str(image["position"]) + extractImageExt(image["src"])
                     else:
                         dest += extractImageExt(image["src"])
-                    downloadFile(image["src"], dest)                    
-            '''
+                    downloadFile(image["src"], dest) 
+            '''                 
+        
         
     pd.DataFrame(filteredData).reset_index().to_csv(workingDir + "/filtered_products.csv")
     

@@ -3,7 +3,10 @@ import spacy
 from spacy.matcher import Matcher
 from spacy import displacy
 import re
-
+'''
+Input: (String)  title, product_type, tags 
+Output: (String) String concating title, product_type and tags. 
+'''
 def clean_tags_text(raw_title, raw_product_type, raw_tags):
     tags = ''
     title = ''
@@ -30,26 +33,35 @@ def clean_tags_text(raw_title, raw_product_type, raw_tags):
     
     contents += '; ' + product_type
     
-        
     if product_type != "":
         contents += '; ' + tags_toString
     else:
         contents += tags_toString
         
     return contents
+'''
+Clean the html with regex.
+Input: raw html String
+Output: After processing body_html String 
 
+'''
+def cleanHtml(html):
+    return re.sub("&amp", "and", re.sub("\n", "",  re.sub(re.compile('<.*?>'), '', html)))
+'''
+From cleanHtml to do one more cleaning
+'''
 def clean_product_description(raw_product_description):
     #remove all ' or " 
     product_description = raw_product_description.lower()
     contents = re.sub('"', "", product_description)
     contents = re.sub("'", "", contents)
     contents = re.sub('&amp', 'and', contents)
-    
     return contents
 '''
 create_patterns 
 return list[list[Dict(str:any)]]
 '''
+
 def create_patterns():
     #all categories
     product_patterns = [{'lemma' : {'IN' : ['shoe', 'top', 'bottom', 'clothing', 'beauty', 'accessory', 'homeware', 'other']}, 'POS': {'NOT_IN':['ADJ']}}]
