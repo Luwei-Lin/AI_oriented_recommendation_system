@@ -37,3 +37,10 @@
 4. There are some food types (for now we add to 'other')
 5. new Item 'Cloak' is found , which could be added to 'other_clothing'? 
 
+## Update June 14
+
+1. 'swimsuit' in other_clothing, swimwear
+2. 'hat' in acc, headwear
+3. 'pant' in bottom
+4. 'pyrrha' in acc
+5. 'perfume' in beauty

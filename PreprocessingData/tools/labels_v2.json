@@ -170,7 +170,8 @@
           "Jeans",
           "Legging",
           "Athletic Boxer",
-          "Sweatpants"
+          "Sweatpants",
+          "Pant"
         ],
   
         "other_clothing":[
@@ -188,7 +189,8 @@
           "Cosmetics",
           "Beauty Tools",
           "Hair Care",
-          "Nail Care"
+          "Nail Care",
+          "Perfume"
         ],
         
         "accessories":[
@@ -211,7 +213,8 @@
           "Wallet",
           "Ties and Pocket Squares",
           "Watches",
-          "Shoe Laces"
+          "Shoe Laces",
+          "Pyrrha"
         ],
 
         "homeware":[
@@ -249,6 +252,7 @@
       }
     ],
     "sub_product_type":[{
+        
         "sandals": [
           "Slides",
           "Flip Flops",
@@ -341,6 +345,7 @@
           "Cargo Shorts",
           "Madras Shots"
         ],
+
         "skirts":[
           "Short Skirts",
           "Midi Skirts",
@@ -392,7 +397,8 @@
           "Bikini bottom",
           "Tankini",
           "Cover up",
-          "Swimwear cleaners"
+          "Swimwear cleaners",
+          "Swimsuit"
         ],
 
         "jewellery":[
@@ -424,6 +430,7 @@
         ],
 
         "headwear": [
+          "hat",
           "flatcaps",
           "trucker hat",
           "toque",
@@ -459,7 +466,7 @@
 
         ],
 
-        "skin_care":[
+        "skin care":[
           "Hand and Body Lotion",
           "Body Wash & Shower Gel",
           "Deodorant",
