@@ -151,6 +151,7 @@
           "Kimono",
           "Cardigan",
           "T-shirt",
+          "Tee Shirt",
           "Hoodie",
           "Vest",
           "Poncho",
@@ -160,7 +161,15 @@
           "Waistcoat",
           "Bralette",
           "Bra",
-          "Jersey"
+          "Intimate",
+          "Jersey",
+          "Tank",
+          "Raverback tank",
+          "Knitwear",
+          "Croptop",
+          "Croptee",
+          "Tee",
+          "T"
         ],
   
         "bottoms":[
@@ -171,7 +180,9 @@
           "Legging",
           "Athletic Boxer",
           "Sweatpants",
-          "Pant"
+          "Pant",
+          "Trousers",
+          "Culotte"
         ],
   
         "other_clothing":[
@@ -181,7 +192,8 @@
           "Underwear",
           "Overall",
           "Activewear",
-          "Sleepwear"
+          "Sleepwear",
+          "Cloak"
         ],
 
         "beauty":[
@@ -195,7 +207,7 @@
         
         "accessories":[
           "Headwear",
-          "Jewelry",
+          "jewelry",
           "Bag",
           "Scarf",
           "Socks and Tights",
@@ -214,7 +226,11 @@
           "Ties and Pocket Squares",
           "Watches",
           "Shoe Laces",
-          "Pyrrha"
+          "Pyrrha",
+          "Scrunchie",
+          "Clips",
+          "Bandana",
+          "Sleeves"
         ],
 
         "homeware":[
@@ -223,14 +239,18 @@
           "Soap",
           "Candle",
           "Bath Bomb",
-          "Blanket/Towel",
+          "Blanket",
+          "Towel",
           "Bath Robe",
           "Canteens",
           "Air Freshener",
           "Area Rug",
           "Shower Curtain",
           "Bath Mat",
-          "Duvet Cover"
+          "Duvet Cover",
+          "Textiles",
+          "Ceramics",
+          "Pillow"
         ],
         
         "other":[
@@ -247,7 +267,10 @@
           "Wakesurfs",
           "Phone Case",
           "Headphones",
-          "Umbrella"
+          "Umbrella",
+          "Puzzle",
+          "Food",
+          "Clock"
         ]
       }
     ],
@@ -302,15 +325,23 @@
           "Polo Shirt",
           "T-Shirt",
           "Blouses",
-          "Cropped Shirt"
+          "Cropped Shirt",
+          "Long sleeve shirt",
+          "Short sleeve shirt",
+          "Sleeveless tee",
+          "Drop tee",
+          "Graphic tee"
         ],
 
-        "sweaters":[
+        "sweaters/hoodies":[
           "Sweaters",
           "Cardigans",
           "Sweater Vests & Camis",
           "Turtlenecks & Mock necks",
-          "Cropped sweaters"
+          "Cropped sweaters",
+          "Sleeveless hooodie",
+          "Crop hoodie",
+          "Zip up hoodie"
         ],
 
         "jackets/coats":[
@@ -343,7 +374,8 @@
           "Cycling Shorts",
           "Board Shorts",
           "Cargo Shorts",
-          "Madras Shots"
+          "Madras Shorts",
+          "Booty Shorts"
         ],
 
         "skirts":[
@@ -356,6 +388,7 @@
 
         "pants":[
           "Leggings",
+          "SweetLegs",
           "Joggers",
           "Slim Pants",
           "Semi-Slim Pants",
@@ -364,7 +397,8 @@
           "Flared Pants",
           "Cropped Pants",
           "Chinos Pants",
-          "Cargos Pants"
+          "Cargos Pants",
+          "Capri"
         ],
 
         "jeans":[
@@ -387,8 +421,8 @@
           "Short Dress",
           "Midi Dress",
           "Long Dress",
-          "Jumpsuits & Rompers",
-          "Cocktail Dress"
+          "Cocktail Dress",
+          "Bodycon Dress"
         ],
         
         "swimwear":[
@@ -398,10 +432,12 @@
           "Tankini",
           "Cover up",
           "Swimwear cleaners",
-          "Swimsuit"
+          "Swimsuit",
+          "Swim trunks"
+
         ],
 
-        "jewellery":[
+        "jewelries":[
           "Earrings",
           "Necklaces",
           "Bracelets",
@@ -463,6 +499,7 @@
           "Lip Balm & Treatment",
           "Blush",
           "Bronzer"
+          
 
         ],
 
@@ -479,7 +516,8 @@
           "Face Wipes",
           "Toners",
           "Face Serums",
-          "Masks"
+          "Masks",
+          "Face Masks"
         ],
 
         "beauty tools":[
