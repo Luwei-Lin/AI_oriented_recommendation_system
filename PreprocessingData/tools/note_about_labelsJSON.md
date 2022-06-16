@@ -91,4 +91,10 @@
 
 25. (√) add "bodycon dress" in "dress"
 
-26. (√) add "booty shorts" in ""
+26. (√) add "booty shorts" in "shorts"
+
+## June 16 Updates
+
+1. (√) add "Lip" into "cosmetics"
+2. (√) separate "romper" and "jumpsuit" into "other_clothing".
+3. (x) Run all pre_cleanning data samples again 
