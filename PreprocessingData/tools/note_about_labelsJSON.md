@@ -97,4 +97,8 @@
 
 1. (√) add "Lip" into "cosmetics"
 2. (√) separate "romper" and "jumpsuit" into "other_clothing".
-3. (x) Run all pre_cleanning data samples again 
+3. (x) Run all pre_cleanning data samples again.
+
+## June 21 updates
+
+1. (X) Found some typo like "earings" instead of "earrings"

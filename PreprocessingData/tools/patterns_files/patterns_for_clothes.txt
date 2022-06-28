@@ -12,24 +12,24 @@ plain
 polka dot
 striped
 tie-dyed
-Abstract pattern
-adaptation pattern
-african pattern
-airbrush pattern
-allover pattern
-animal pattern
-cheetah pattern
-crocodile pattern
-giraffe pattern
-jaguar pattern
-snake pattern
-anthemion pattern
-arabesque pattern
-art deco pattern
-art Nouveau pattern
-asymmetrical pattern
-basket weave pattern
-batik pattern
+Abstract 
+adaptation 
+african 
+airbrush 
+allover 
+animal 
+cheetah 
+crocodile 
+giraffe 
+jaguar 
+snake
+anthemion
+arabesque
+art deco
+art Nouveau 
+asymmetrical 
+basket weave 
+batik
 bead and reel
 bird's eye
 bohemian
@@ -46,7 +46,7 @@ argyle
 benmore
 buffalo
 chequered checks
-district pattern
+district  
 dupplins check
 glen checks
 gingham
@@ -61,9 +61,9 @@ shepherd check
 tattersail
 windowpane check
 chinoserie
-Christmas pattern
-coin dot pattern
-collage pattern
+Christmas  
+coin dot  
+collage  
 composite overlay
 composite repeat
 contour
@@ -73,11 +73,11 @@ counterchange
 damask
 designer
 diagonal
-diamond pattern
-diaper pattern
-digital pattern
-directional pattern
-disty pattern
+diamond  
+diaper  
+digital  
+directional  
+disty  
 dog's tooth
 dotted swiss
 drybrush
@@ -96,18 +96,18 @@ fret
 foulard
 four-way layout
 frieze
-geometric pattern
+geometric 
 gradation
-graphic pattern
+graphic 
 greek key
-guilloche pattern
+guilloche  
 hairline stripe
-half drop pattern
+half drop  
 harlequin
 hawaiian
 herati
 hexagonal
-herringbone pattern
+herringbone  
 illusion
 interlocking
 irregular repeat
@@ -117,43 +117,43 @@ lane's net
 lattice
 liberty style
 logo
-madras pattern
+madras  
 metallese
 mini-check
 moire
 mosaic
-natural pattern
+natural  
 naturalistic
 neats
-network pattern
+network  
 nursery
-ogee pattern
-ombre pattern
+ogee  
+ombre  
 oriental
 overall
-paisley pattern
+paisley  
 palmette
 patrioric
-patterned ground
+ ed ground
 pencil stripes
-pet pattern
+pet  
 pheasant's eye
-pincheck pattern
+pincheck  
 pin dot
 pinstrip 
-plaid pattern
-polka dot pattern
-pop art pattern
+plaid  
+polka dot  
+pop art  
 positive-negative
 quatrefoil
-random pattern
+random  
 regency stripes
 regimental stripe
 retro
 roman stripes
 sateen repeat
 scale
-scroll pattern
+scroll  
 seamless
 serpentine stripes
 shepherd's check
@@ -161,23 +161,23 @@ sketch
 spot repeat
 sprig
 square repeat
-stipple pattern
+stipple  
 straight across
 straight repeat
 striae
-barcode pattern
+barcode  
 awning
 bayadere
 bengal
 breton stripe
-candy pattern
+candy  
 chevron
-dress pattern
-hairline pattern
+dress  
+hairline  
 pin stripe
 regimental
 roman
-serpentine pattern
+serpentine  
 shadow stripe
 swirl
 tessellations
@@ -192,9 +192,9 @@ water color
 windowpane check
 wreath
 zig zag
-undirectional pattern
+undirectional  
 unbalanced stripes
-two-directional pattern
+two-directional  
 two-way layout
 two color sysmmetries
 Basketweave
@@ -225,3 +225,5 @@ tartan
 toile
 trellis
 zebra
+color-blocked stripe
+psychedelic
