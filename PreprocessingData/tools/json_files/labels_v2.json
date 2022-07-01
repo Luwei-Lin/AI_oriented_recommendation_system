@@ -1,0 +1,560 @@
+{
+  "gender": [
+    "Men",
+    "Women",
+    "Boys",
+    "Girls",
+    "Neutral"],
+
+  "size": [
+    {
+      "female_shoe_size":[
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11"
+      ],
+      "male_shoe_size":[
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"],
+      "clothing_size": [
+        "XXS",
+        "XS",        
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "ONE SIZE"],
+      "pants_size":[{
+        "waist":[
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "36",
+          "38",
+          "40",
+          "42",
+          "44"
+        ],
+        "length":[
+          "26",
+          "28",
+          "30",
+          "32",
+          "34",
+          "36"
+        ]
+      }]
+    }
+  ],
+
+  "color": [
+    "Black",
+    "Blue",
+    "Brown",
+    "Green",
+    "Grey",
+    "Orange",
+    "Pink",
+    "Purple",
+    "Red",
+    "Tan",
+    "White",
+    "Yellow"
+  ],
+
+  "pattern": [
+    "Abstract",
+    "Camouflage",
+    "Checks & Plaid",
+    "Floral",
+    "Graphic",
+    "Spiro",
+    "Striped",
+    "Tweed",
+    "Denim",
+    "No Pattern"
+  ],
+
+  "bucket": [
+    "Athletic", 
+    "Bohemian", 
+    "Chic", 
+    "Trendy", 
+    "Casual", 
+    "Vintage",
+    "MusicFestival", 
+    "Streetwear", 
+    "HipHop", 
+    "Rock", 
+    "Punk", 
+    "Elegant", 
+    "Formal",
+    "Skater",
+    "Other"],
+
+  "product_type":[
+      {
+        "shoes": [
+          "Slipper",
+          "Flat shoes",
+          "Sandals",
+          "Heels",
+          "Boots",
+          "Skate shoes",
+          "Wedge",
+          "Snowshoes",
+          "Clogs",
+          "Sneakers",
+          "Oxford/Loafers"
+        ],
+
+        "tops" : [
+          "Jacket",
+          "Camisole",
+          "Shirt",
+          "Coat",
+          "Sweater",
+          "Blouse",
+          "Kimono",
+          "Cardigan",
+          "T-shirt",
+          "Tee Shirt",
+          "Hoodie",
+          "Vest",
+          "Poncho",
+          "Tank Top",
+          "Blazer",
+          "Sweatshirt",
+          "Waistcoat",
+          "Bralette",
+          "Bra",
+          "Intimate",
+          "Jersey",
+          "Tank",
+          "Raverback tank",
+          "Knitwear",
+          "Croptop",
+          "Croptee",
+          "Tee",
+          "T",
+          "Tunic"
+        ],
+  
+        "bottoms":[
+          "Short",
+          "Skirt",
+          "Jogger",
+          "Jeans",
+          "Legging",
+          "Athletic Boxer",
+          "Sweatpants",
+          "Pant",
+          "Trousers",
+          "Culotte",
+          "Dress"
+        ],
+  
+        "other_clothing":[
+          "Swimwear",
+          "Jumpsuits and Rompers",
+          "Jumpsuits",
+          "Rompers",
+          "Underwear",
+          "Overall",
+          "Activewear",
+          "Sleepwear",
+          "Cloak"
+        ],
+
+        "beauty":[
+          "Skin Care",
+          "Cosmetics",
+          "Beauty Tools",
+          "Hair Care",
+          "Nail Care",
+          "Perfume"
+        ],
+        
+        "accessories":[
+          "Headwear",
+          "jewelry",
+          "Bag",
+          "Scarf",
+          "Socks and Tights",
+          "Belt",
+          "Collar",
+          "Sticker",
+          "Cologne",
+          "Heel Cover",
+          "Backpack",
+          "Gloves",
+          "Headbands",
+          "Mask",
+          "Sunglasses",
+          "Shawl",
+          "Wallet",
+          "Ties and Pocket Squares",
+          "Watches",
+          "Shoe Laces",
+          "Pyrrha",
+          "Scrunchie",
+          "Clips",
+          "Bandana",
+          "Sleeves"
+        ],
+
+        "homeware":[
+          "Drinkware",
+          "Home Decorations",
+          "Soap",
+          "Candle",
+          "Bath Bomb",
+          "Blanket",
+          "Towel",
+          "Bath Robe",
+          "Canteens",
+          "Air Freshener",
+          "Area Rug",
+          "Shower Curtain",
+          "Bath Mat",
+          "Duvet Cover",
+          "Textiles",
+          "Ceramics",
+          "Pillow"
+        ],
+        
+        "other":[
+          "Skateboard Wax",
+          "Woodcarving",
+          "Artwork",
+          "Canvas",
+          "Books",
+          "Bottles",
+          "Cards and Stationery",
+          "Skateboard Tools",
+          "Skateboard Wheels",
+          "Snowboards",
+          "Wakesurfs",
+          "Phone Case",
+          "Headphones",
+          "Umbrella",
+          "Puzzle",
+          "Food",
+          "Clock"
+        ]
+      }
+    ],
+    "sub_product_type":[{
+        
+        "sandals": [
+          "Slides",
+          "Flip Flops",
+          "Jellies",
+          "Chunky Sandals",
+          "Falt Sandals",
+          "Heels & Wedges",
+          "Espadrilles",
+          "Platforms"
+        ],
+        
+        "sneakers":[
+          "High Top Sneakers",
+          "Slip-on Sneakers",
+          "Canvas Sneakers",
+          "Classic Sneakers"
+        ],
+
+        "heels":[
+          "Kitten Heels",
+          "Pumps",
+          "Stilettos",
+          "Ankle Strap Heels",
+          "Wedge Heels",
+          "Platform Heels",
+          "Mules"
+        ],
+        "boots":[
+          "Ankle Boots",
+          "Lace-up boots",
+          "Heel Boots",
+          "Platform Boots",
+          "Rain Boots",
+          "Waterproof Boots",
+          "Tall Boots",
+          "Chelsea Boots",
+          "Tall Boots",
+          "Winter Boots",
+          "Ice Gripper Boots"
+        ],
+
+        "shirts":[
+          "Button-Down Shirt",
+          "Button-Up Shirt",
+          "Dress Shirt",
+          "Office Shirt",
+          "Polo Shirt",
+          "T-Shirt",
+          "Blouses",
+          "Cropped Shirt",
+          "Long sleeve shirt",
+          "Short sleeve shirt",
+          "Sleeveless tee",
+          "Drop tee",
+          "Graphic tee"
+        ],
+
+        "sweaters/hoodies":[
+          "Sweaters",
+          "Cardigans",
+          "Sweater Vests & Camis",
+          "Turtlenecks & Mock necks",
+          "Cropped sweaters",
+          "Sleeveless hooodie",
+          "Crop hoodie",
+          "Zip up hoodie"
+        ],
+
+        "jackets/coats":[
+          "Jackets",
+          "Parkas",
+          "Quilted and Down Jackets",
+          "Wool Jackets",
+          "Raincoats",
+          "Leather and Suede Jackets",
+          "Technical Sports Jackets",
+          "Blazers",
+          "Bomber Jackets",
+          "Denim Jackets"
+        ],
+
+        "activewear":[
+          "Base Layers",
+          "Fleece Jackets",
+          "Training",
+          "Running",
+          "Yoga",
+          "Golf",
+          "Swimwear"
+        ],
+
+        "shorts":[
+          "Running shorts",
+          "Swimming Shorts",
+          "Denim Shorts",
+          "Cycling Shorts",
+          "Board Shorts",
+          "Cargo Shorts",
+          "Madras Shorts",
+          "Booty Shorts"
+        ],
+
+        "skirts":[
+          "Short Skirts",
+          "Midi Skirts",
+          "Long Skirts",
+          "Denim Skirts",
+          "Skorts Skirts"
+        ],
+
+        "pants":[
+          "Leggings",
+          "SweetLegs",
+          "Joggers",
+          "Slim Pants",
+          "Semi-Slim Pants",
+          "Straight Pants",
+          "Wide Leg Pants",
+          "Flared Pants",
+          "Cropped Pants",
+          "Chinos Pants",
+          "Cargos Pants",
+          "Capri"
+        ],
+
+        "jeans":[
+          "Curvy Jeans",
+          "Jean Leggings",
+          "Mom Jeans",
+          "Dad Jeans",
+          "Straight Jeans",
+          "Bootcut Jeans",
+          "Flare Jeans",
+          "Culotte Jeans",
+          "Baggy Jeans",
+          "High-Rise Jeans",
+          "Cropped Jeans",
+          "Ripped Jeans",
+          "Skinny Jeans",
+          "Denim Jogger"],
+
+        "dresses":[
+          "Short Dress",
+          "Midi Dress",
+          "Long Dress",
+          "Cocktail Dress",
+          "Bodycon Dress"
+        ],
+        
+        "swimwear":[
+          "One piece",
+          "Bikini top",
+          "Bikini bottom",
+          "Tankini",
+          "Cover up",
+          "Swimwear cleaners",
+          "Swimsuit",
+          "Swim trunks"
+
+        ],
+
+        "jewelries":[
+          "Earrings",
+          "Necklaces",
+          "Bracelets",
+          "Anklets",
+          "Brooches",
+          "Rings"],
+
+        "bags":[
+          "Backpacks",
+          "Crossbody Bags",
+          "Tote Bags",
+          "Leather and Suede",
+          "Clutches and Minaudieres",
+          "Handheld Bags",
+          "Shoulder Bags",
+          "Evening Bags"],
+
+        "glasses":[
+          "Reading Glasses",
+          "Blue Light Blocking Glasses",
+          "Aviator Glasses",
+          "Round Glasses",
+          "Cat Eye Glasses",
+          "Square Glasses",
+          "Rectangular Glasses"
+        ],
+
+        "headwear": [
+          "hat",
+          "flatcaps",
+          "trucker hat",
+          "toque",
+          "snapback hat",
+          "straw hat",
+          "fedora",
+          "caps",
+          "baseball hat",
+          "sun hat",
+          "snap back",
+          "skateboard helmet",
+          "Snow Helmelt"
+        ],
+
+        "cosmetics":[
+          "Foundation",
+          "Concealer",
+          "Face Primer,",
+          "Setting Spray & Powder",
+          "Highlighter",
+          "Contour",
+          "Mascara",
+          "Eyeliner",
+          "Eyebrow",
+          "False Eyelashes",
+          "Eyeshadow",
+          "Eye Primer",
+          "Lips",
+          "Lipstick",
+          "Lip Gloss",
+          "Lip Balm & Treatment",
+          "Blush",
+          "Bronzer"
+          
+
+        ],
+
+        "skin care":[
+          "Hand and Body Lotion",
+          "Body Wash & Shower Gel",
+          "Deodorant",
+          "Moisturizers",
+          "Cleansers",
+          "Eye Creams",
+          "Sunscreen",
+          "Exfoliators",
+          "Makeup Removers",
+          "Face Wipes",
+          "Toners",
+          "Face Serums",
+          "Masks",
+          "Face Masks"
+        ],
+
+        "beauty tools":[
+          "Brush Sets",
+          "Face Brushes",
+          "Eye Brushes",
+          "Lip Brushes",
+          "Sponges & Applicators",
+          "Brush Cleaners"
+          
+        ],
+
+        "hair care":[
+          "Shampoo",
+          "Conditioner",
+          "Scalp Scrub",
+          "Hair Masks",
+          "Leave-in Conditioner",
+          "Hair Oil",
+          "Hair Serums",
+          "Styling Creams",
+          "Dry Shampoo",
+          "Hair Primers & Heat Protectants",
+          "Hair Spray",
+          "Hair Dryers",
+          "Straighteners & Flat Irons",
+          "Curling Irons",
+          "Hair Brushes & Combs"
+        ],
+
+        "nail care":[
+          "Nail care",
+          "Nail Polish"
+        ]
+    }]
+}
