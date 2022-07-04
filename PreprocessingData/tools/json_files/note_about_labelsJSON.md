@@ -107,3 +107,16 @@
 
 1. (√)from women's tunics, add 'tunic' to 'tops'.
 2. (√) remove 'dress' from other_clothing to 'bottoms'
+
+## July 03 updates
+
+1. (√) Separate "socks and tights" to socks and tights
+2. (√) Add "gear" and "nutrition" to "others"
+3. (√) Add "hipster" to bottoms
+4. (√) Add "skort shorts" to shorts
+5. (√) Add "skateboard trucks" to "others", and "leather", "band" to accessories
+6. (√) Add "vest" to coats, "pull over" hoodies
+7. (√) Separate the "leather jacket"
+8. (√) Add "mitts" to "accessories"
+9. (√) Add "Swim", "Swim tops", "swim bottoms" in "swimwear"
+10. (√) Add "Bikini" to "Swimwear". 

@@ -143,6 +143,7 @@
 
         "tops" : [
           "Jacket",
+          "Sweettops",
           "Camisole",
           "Shirt",
           "Coat",
@@ -161,6 +162,7 @@
           "Waistcoat",
           "Bralette",
           "Bra",
+          "Sports bra",
           "Intimate",
           "Jersey",
           "Tank",
@@ -184,7 +186,8 @@
           "Pant",
           "Trousers",
           "Culotte",
-          "Dress"
+          "Dress",
+          "Hipster"
         ],
   
         "other_clothing":[
@@ -213,7 +216,8 @@
           "jewelry",
           "Bag",
           "Scarf",
-          "Socks and Tights",
+          "Socks",
+          "Tights",
           "Belt",
           "Collar",
           "Sticker",
@@ -221,6 +225,7 @@
           "Heel Cover",
           "Backpack",
           "Gloves",
+          "Mitts",
           "Headbands",
           "Mask",
           "Sunglasses",
@@ -233,7 +238,11 @@
           "Scrunchie",
           "Clips",
           "Bandana",
-          "Sleeves"
+          "Sleeves",
+          "Leather",
+          "Watch",
+          "Leather Band Watch",
+          "Metal Band Watch"
         ],
 
         "homeware":[
@@ -266,6 +275,7 @@
           "Cards and Stationery",
           "Skateboard Tools",
           "Skateboard Wheels",
+          "Skateboard Trucks",
           "Snowboards",
           "Wakesurfs",
           "Phone Case",
@@ -273,7 +283,12 @@
           "Umbrella",
           "Puzzle",
           "Food",
-          "Clock"
+          "Clock",
+          "Nutrition",
+          "Gear",
+          "Longboard",
+          "Skateboard decks",
+          "baby"
         ]
       }
     ],
@@ -325,13 +340,13 @@
           "Button-Up Shirt",
           "Dress Shirt",
           "Office Shirt",
-          "Polo Shirt",
+          "Polo",
           "T-Shirt",
           "Blouses",
           "Cropped Shirt",
-          "Long sleeve shirt",
-          "Short sleeve shirt",
-          "Sleeveless tee",
+          "Long sleeve",
+          "Short sleeve",
+          "Sleeveless",
           "Drop tee",
           "Graphic tee"
         ],
@@ -339,21 +354,25 @@
         "sweaters/hoodies":[
           "Sweaters",
           "Cardigans",
+          "Vests",
           "Sweater Vests & Camis",
           "Turtlenecks & Mock necks",
           "Cropped sweaters",
           "Sleeveless hooodie",
-          "Crop hoodie",
-          "Zip up hoodie"
+          "Crop hoodies",
+          "Zip up hoodies",
+          "Pullover hoodies"
         ],
 
         "jackets/coats":[
           "Jackets",
+          "Coats jackets",
           "Parkas",
           "Quilted and Down Jackets",
           "Wool Jackets",
           "Raincoats",
-          "Leather and Suede Jackets",
+          "Leather Jackets",
+          "Suede",
           "Technical Sports Jackets",
           "Blazers",
           "Bomber Jackets",
@@ -378,7 +397,8 @@
           "Board Shorts",
           "Cargo Shorts",
           "Madras Shorts",
-          "Booty Shorts"
+          "Booty Shorts",
+          "Skort Shorts"
         ],
 
         "skirts":[
@@ -391,7 +411,7 @@
 
         "pants":[
           "Leggings",
-          "SweetLegs",
+          "Sweetlegs",
           "Joggers",
           "Slim Pants",
           "Semi-Slim Pants",
@@ -430,13 +450,17 @@
         
         "swimwear":[
           "One piece",
+          "Bikini",
           "Bikini top",
           "Bikini bottom",
           "Tankini",
           "Cover up",
           "Swimwear cleaners",
           "Swimsuit",
-          "Swim trunks"
+          "Swim trunks",
+          "Swim",
+          "Swim tops",
+          "Swim bottoms"
 
         ],
 
