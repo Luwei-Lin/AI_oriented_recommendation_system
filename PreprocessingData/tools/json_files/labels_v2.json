@@ -133,6 +133,7 @@
           "Sandals",
           "Heels",
           "Boots",
+          "Flats",
           "Skate shoes",
           "Wedge",
           "Snowshoes",
@@ -169,10 +170,14 @@
           "Raverback tank",
           "Knitwear",
           "Croptop",
+          "Crop top",
+          "Sweet top",
+          "Cami top",
           "Croptee",
           "Tee",
           "T",
-          "Tunic"
+          "Tunic",
+          "Suit"
         ],
   
         "bottoms":[
@@ -187,19 +192,29 @@
           "Trousers",
           "Culotte",
           "Dress",
-          "Hipster"
+          "The Hipster"
         ],
   
         "other_clothing":[
           "Swimwear",
           "Jumpsuits and Rompers",
           "Jumpsuits",
+          "Bodysuit",
           "Rompers",
           "Underwear",
           "Overall",
           "Activewear",
           "Sleepwear",
-          "Cloak"
+          "Cloak",
+          "robe",
+          "Bath Robe",
+          "lounge",
+          "pajama set",
+          "nightgown",
+          "sleepshirt",
+          "pantie",
+          "panty",
+          "lingerie"
         ],
 
         "beauty":[
@@ -231,7 +246,8 @@
           "Sunglasses",
           "Shawl",
           "Wallet",
-          "Ties and Pocket Squares",
+          "Ties",
+          "Pocket Squares",
           "Watches",
           "Shoe Laces",
           "Pyrrha",
@@ -247,13 +263,13 @@
 
         "homeware":[
           "Drinkware",
+          "home",
           "Home Decorations",
           "Soap",
           "Candle",
           "Bath Bomb",
           "Blanket",
           "Towel",
-          "Bath Robe",
           "Canteens",
           "Air Freshener",
           "Area Rug",
@@ -265,14 +281,15 @@
           "Pillow"
         ],
         
-        "other":[
+        "others":[
           "Skateboard Wax",
           "Woodcarving",
           "Artwork",
           "Canvas",
           "Books",
           "Bottles",
-          "Cards and Stationery",
+          "Cards",
+          "Stationery",
           "Skateboard Tools",
           "Skateboard Wheels",
           "Skateboard Trucks",
@@ -292,7 +309,7 @@
         ]
       }
     ],
-    "sub_product_type":[{
+  "sub_product_type":[{
         
         "sandals": [
           "Slides",
@@ -355,8 +372,11 @@
           "Sweaters",
           "Cardigans",
           "Vests",
-          "Sweater Vests & Camis",
-          "Turtlenecks & Mock necks",
+          "Sweater Vests",
+          "Camis",
+          "Turtle necks",
+          "Mock necks",
+          "V necks",
           "Cropped sweaters",
           "Sleeveless hooodie",
           "Crop hoodies",
@@ -368,7 +388,8 @@
           "Jackets",
           "Coats jackets",
           "Parkas",
-          "Quilted and Down Jackets",
+          "Quilted Jackets",
+          "Down Jackets",
           "Wool Jackets",
           "Raincoats",
           "Leather Jackets",
@@ -386,7 +407,7 @@
           "Running",
           "Yoga",
           "Golf",
-          "Swimwear"
+          "sports set"
         ],
 
         "shorts":[
@@ -427,6 +448,7 @@
         "jeans":[
           "Curvy Jeans",
           "Jean Leggings",
+          "Denim",
           "Mom Jeans",
           "Dad Jeans",
           "Straight Jeans",
@@ -512,7 +534,8 @@
           "Foundation",
           "Concealer",
           "Face Primer,",
-          "Setting Spray & Powder",
+          "Setting Spray",
+          "Setting Powder",
           "Highlighter",
           "Contour",
           "Mascara",
@@ -524,16 +547,18 @@
           "Lips",
           "Lipstick",
           "Lip Gloss",
-          "Lip Balm & Treatment",
+          "Lip Balm",
+          "lip Treatment",
+          "lip balm treatment",
           "Blush",
           "Bronzer"
-          
-
         ],
 
         "skin care":[
-          "Hand and Body Lotion",
-          "Body Wash & Shower Gel",
+          "Hand lotion",
+          "Body Lotion",
+          "Body Wash",
+          "Shower Gel",
           "Deodorant",
           "Moisturizers",
           "Cleansers",
@@ -553,12 +578,13 @@
           "Face Brushes",
           "Eye Brushes",
           "Lip Brushes",
-          "Sponges & Applicators",
+          "Sponges",
+          "Applicators",
           "Brush Cleaners"
-          
         ],
 
         "hair care":[
+          "hair",
           "Shampoo",
           "Conditioner",
           "Scalp Scrub",
@@ -568,17 +594,22 @@
           "Hair Serums",
           "Styling Creams",
           "Dry Shampoo",
-          "Hair Primers & Heat Protectants",
+          "Hair Primers",
+          "Heat Protectants",
           "Hair Spray",
           "Hair Dryers",
-          "Straighteners & Flat Irons",
+          "Straighteners",
+          "Flat Irons",
           "Curling Irons",
-          "Hair Brushes & Combs"
+          "Hair Brushes",
+          "Combs",
+          "Hair combs"
         ],
 
         "nail care":[
+          "Nail",
           "Nail care",
           "Nail Polish"
         ]
-    }]
+  }]
 }
