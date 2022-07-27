@@ -30,7 +30,7 @@ def clean_tags_text(raw_title, raw_product_type, raw_tags, raw_buckets):
     contents = title
     #edge case: there is no any words in the title 
     if contents == "": 
-        contents = 'NOTITLE'
+        contents = ''
     #tags string 
     tags_toString = str(re.findall(reg_str, tags)).removeprefix('[').removesuffix(']')
     tags_toString = re.sub("'", "", re.sub('"', ' ', tags_toString))
