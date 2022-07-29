@@ -1,14 +1,14 @@
 {
     "shoes":
     {
-        "sneakers":[
+        "Sneakers":[
             "sneaker", 
             "high top sneaker", 
             "skate shoe", 
             "canvas sneaker", 
             "classic sneaker", 
             "slip-on sneaker"],
-        "heel/wedge": [
+        "Heel/Wedge": [
             "kitten heel", 
             "wedge", 
             "pump", 
@@ -18,7 +18,7 @@
             "wedge heel", 
             "stilettos", 
             "ankle strap heel"],
-        "sandal": [
+        "Sandal": [
             "falt sandal", 
             "flip flop", 
             "sandal", "jelly",
@@ -26,7 +26,7 @@
             "mule", 
             "clog", 
             "chunky sandal"],
-        "boot": [
+        "Boot": [
             "boot", 
             "rain boot", 
             "chelsea boot", 
@@ -40,27 +40,27 @@
             "platform boot", 
             "lace-up boot", 
             "ice gripper boot"],
-        "slipper": [
+        "Slipper": [
             "slipper", 
             "slide"],
-        "flat": [
+        "Flat": [
             "platform", 
             "flat shoe"],
-        "clog":["clog"]
+        "Clog":["clog"]
     },
     "bottoms":
     {
-        "short": ["swimming short", "denim short", "short", "board short", "athletic boxer", "run short", "booty short", "cycling short", "madra short", "cargo short"],
-        "pants/trousers": ["denim","straight pant", "jean", "flare jean", "denim jogger", "crop pant", "skinny jean", "chinos pant", "mom jean",  
+        "Short": ["swimming short", "denim short", "short", "board short", "athletic boxer", "run short", "booty short", "cycling short", "madra short", "cargo short"],
+        "Pants/Trousers": ["denim","straight pant", "jean", "flare jean", "denim jogger", "crop pant", "skinny jean", "chinos pant", "mom jean",  
             "semi-slim pant", "wide leg pant", "trouser", "dad jeans", "flare pant", "bootcut jean", "rip jean", "culotte jean", "curvy jean", "pant", "trousers",
             "slim pant", "straight jean", "culotte", "baggy jean", "cargos pant", "high-rise jean", "jogger", "crop jean", "sweatpant", "capri"],
-        "leggings": ["jean legging", "sweetleg", "leggings"],
-        "dresses": ["cocktail dress", "short dress", "midi dress", "long dress", "dress", "short dress", "bodycon dress"],
-        "skirts": ["skort skirt", "skirt", "short skirt", "skort short", "long skirt", "midi skirt", "denim skirt"]
+        "Leggings": ["jean legging", "sweetleg", "leggings"],
+        "Dresses": ["cocktail dress", "short dress", "midi dress", "long dress", "dress", "short dress", "bodycon dress"],
+        "Skirts": ["skort skirt", "skirt", "short skirt", "skort short", "long skirt", "midi skirt", "denim skirt"]
         },
     "tops":
     {
-        "coats/jackets": [
+        "Coats/Jackets": [
             "jacket",
             "Fleece Jackets",
             "coat", 
@@ -79,7 +79,7 @@
             "Waistcoat"
             ],
         "Blazer/Suit":["Blazer", "Suit"],
-        "shirts":[
+        "Shirts":[
             "T-shirt", 
             "Tee Shirt", 
             "Croptop",
@@ -100,11 +100,11 @@
             "Graphic tee",
             "Blouse", 
             "Tunic"],
-        "tank tops":[
+        "Tank Tops":[
             "Tank Top",
             "Tank", 
             "Raverback tank"],
-        "Other tops": [
+        "Other Tops": [
             "Sweet top", 
             "Crop top", 
             "Cami top", 
@@ -176,31 +176,30 @@
     },
     "accessories":
     {
-        "bag": ["backpack", "shoulder bag", "handheld bag", "crossbody bag", "evening bag", "clutch minaudiere", "bag", "tote bag"],
-        "glasses": ["read glasses", "glasses", "cat eye glasses", "aviator glasses", "blue light block glasses", "square glasses", "sunglasses", "rectangular glasses", "round glasses"],
-        "jewelry": ["jewelry", "bracelet", "anklet", "earrings", "brooch", "necklace", "ring"],
-        "sock": ["sock"],
-        "heel cover": ["heel cover"],
-        "headwear": ["toque", "hat", "cap", "flatcap", "snow helmelt", "straw hat", "snapback hat", "sun hat", "baseball hat", "trucker hat", "fedora",
+        "Bag": ["backpack", "shoulder bag", "handheld bag", "crossbody bag", "evening bag", "clutch minaudiere", "bag", "tote bag"],
+        "Glasses": ["read glasses", "glasses", "cat eye glasses", "aviator glasses", "blue light block glasses", "square glasses", "sunglasses", "rectangular glasses", "round glasses"],
+        "Jewelry": ["jewelry", "bracelet", "anklet", "earrings", "brooch", "necklace", "ring"],
+        "Sock": ["sock"],
+        "Heel Cover": ["heel cover"],
+        "Headwear": ["toque", "hat", "cap", "flatcap", "snow helmelt", "straw hat", "snapback hat", "sun hat", "baseball hat", "trucker hat", "fedora",
             "snap back", "headwear", "headband", "skateboard helmet"],
-        "scarf": ["scarf", "shawl"],
-        "watch": ["watch", "leather band watch", "metal band watch"],
-        "belt": ["belt"],
-        "glove": ["glove", "mitt"],
-        "wallet": ["wallet"],
-        "tight":["tight"],
-        "scrunchie": ["scrunchie"],
-        "sticker": ["sticker"],
-        "pyrrha":["pyrrha"],
-        "collar":["collar"],
-        "ties":["tie"],
-        "pocket square":["pocket square"],
-        "clip":["clips"],
-        "sleeve":["sleeve"],
-        "bandana":["bandana"],
-
-        "shoe lace":["shoe lace"],
-        "leather suede":["leather suede"]
+        "Scarf": ["scarf", "shawl"],
+        "Watch": ["watch", "leather band watch", "metal band watch"],
+        "Belt": ["belt"],
+        "Glove": ["glove", "mitt"],
+        "Wallet": ["wallet"],
+        "Tight":["tight"],
+        "Scrunchie": ["scrunchie"],
+        "Sticker": ["sticker"],
+        "Pyrrha":["pyrrha"],
+        "Collar":["collar"],
+        "Ties":["tie"],
+        "Pocket Square":["pocket square"],
+        "Clip":["clips"],
+        "Sleeve":["sleeve"],
+        "Bandana":["bandana"],
+        "Shoe Lace":["shoe lace"],
+        "Leather Suede":["leather suede"]
     },
     "beauty":{
         "Skin Care":[
