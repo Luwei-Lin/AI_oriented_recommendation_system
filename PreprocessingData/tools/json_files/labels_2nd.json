@@ -25,7 +25,10 @@
             "espadrille", 
             "mule", 
             "clog", 
-            "chunky sandal"],
+            "chunky sandal",
+            "platform", 
+            "flat shoe",
+            "clog"],
         "Boot": [
             "boot", 
             "rain boot", 
@@ -42,11 +45,7 @@
             "ice gripper boot"],
         "Slipper": [
             "slipper", 
-            "slide"],
-        "Flat": [
-            "platform", 
-            "flat shoe"],
-        "Clog":["clog"]
+            "slide"]
     },
     "bottoms":
     {
@@ -99,18 +98,17 @@
             "Drop tee",
             "Graphic tee",
             "Blouse", 
-            "Tunic"],
-        "Tank Tops":[
-            "Tank Top",
-            "Tank", 
-            "Raverback tank"],
-        "Other Tops": [
+            "Tunic",
             "Sweet top", 
             "Crop top", 
             "Cami top", 
             "Camisole", 
             "Kimono", 
             "Jersey"],
+        "Tank Tops":[
+            "Tank Top",
+            "Tank", 
+            "Raverback tank"],
         "Sweaters":[ 
             "Hoodies", 
             "Sweatshirt", 
@@ -170,17 +168,18 @@
             "Intimate",
             "Sports bra",
             "Pantie",
-            "Panty"],
+            "Panty",
+        "The Hipster"],
         "Cloak":["Cloak"],
+        "Underwear":["Underwear"],
         "Bath robe":["bath robe"]
     },
     "accessories":
     {
         "Bag": ["backpack", "shoulder bag", "handheld bag", "crossbody bag", "evening bag", "clutch minaudiere", "bag", "tote bag"],
         "Glasses": ["read glasses", "glasses", "cat eye glasses", "aviator glasses", "blue light block glasses", "square glasses", "sunglasses", "rectangular glasses", "round glasses"],
-        "Jewelry": ["jewelry", "bracelet", "anklet", "earrings", "brooch", "necklace", "ring"],
+        "Jewelry": ["jewelry", "bracelet", "anklet", "earrings", "brooch", "necklace", "ring", "pyrrha"],
         "Sock": ["sock"],
-        "Heel Cover": ["heel cover"],
         "Headwear": ["toque", "hat", "cap", "flatcap", "snow helmelt", "straw hat", "snapback hat", "sun hat", "baseball hat", "trucker hat", "fedora",
             "snap back", "headwear", "headband", "skateboard helmet"],
         "Scarf": ["scarf", "shawl"],
@@ -191,8 +190,6 @@
         "Tight":["tight"],
         "Scrunchie": ["scrunchie"],
         "Sticker": ["sticker"],
-        "Pyrrha":["pyrrha"],
-        "Collar":["collar"],
         "Ties":["tie"],
         "Pocket Square":["pocket square"],
         "Clip":["clips"],
@@ -292,5 +289,37 @@
             "Nail care",
             "Nail Polish"],
         "Perfume":["cologne"]
+    },
+    "others":{
+        "Skateboard":[
+            "Skateboard decks",
+            "Longboard",
+            "Snowboards",
+            "Wakesurfs"
+        ],
+        "Others":[
+            "Woodcarving",
+            "Artwork",
+            "Canvas",
+            "Books",
+            "Bottles",
+            "Cards",
+            "Stationery",
+            "Skateboard Tools",
+            "Skateboard Wax",
+            "Skateboard Wheels",
+            "Skateboard Trucks",
+            "Phone Case",
+            "Headphones",
+            "Umbrella",
+            "Puzzle",
+            "Food",
+            "Clock",
+            "Nutrition",
+            "Gear",
+            "baby",
+            "heel cover",
+            "collar"
+        ]
     }
 }
