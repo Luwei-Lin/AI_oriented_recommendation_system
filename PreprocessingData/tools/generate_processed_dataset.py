@@ -6,15 +6,16 @@
 # 2. colour_labels are the results from colour-name query to colornames.org and color-distance similarity algorithm calculation, which is a color standardization process.
 # 3. html_cleaner will extract product description (raw_text based) and save content in 'raw_text' column
 #
-# Please make sure the input file path and type is correct
+# Please make sure the input file path and type is correct,
+# We are using the all predetermined labels in directory "json_files"
 # Also, make sure product_to_all.json and main_to_num.json
 # in the same directory(or same path.) Since these two files
 # are the standardize information we use and the product label 
 # map to the number we predefined.
 # 
-# Speed : 1000 data in 1107 seconds (18 mins) with M1 pro Chip
+# Speed : 1000 data in 1107 seconds (18 mins) with M1 pro Chip, total 28426 data took 12310 seconds(3 hr 25 mins)
 # Author: Luis Lin
-# Date: June 27, 2022
+# Date: Aug 7, 2022
 #################################################################
 import json
 import spacy 
@@ -29,10 +30,9 @@ import time
 import requests
 from bs4 import BeautifulSoup
 import multiprocessing as mp
-from pandarallel import pandarallel
-
-
+#from pandarallel import pandarallel
 start_time = time.time()
+
 #the main_categories with all sub_categories dict
 products_to_all = {}
 #the main_categories relate to numbers dict
@@ -47,6 +47,16 @@ label3_to_label2_map = {}
 colorname_to_hex_map = {}
 
 def parallelize_dataframe(df:pd.DataFrame, func, n_cores=mp.cpu_count())->pd.DataFrame:
+    """This is a parallelize calculated function
+
+    Args:
+        df (pd.DataFrame): the dataframe of pandas, we are going to use.
+        func (_type_): for each line calculation, we are going to implement.
+        n_cores (_type_, optional): Defaults to mp.cpu_count().
+
+    Returns:
+        pd.DataFrame: After calculation, the return new dataframe.
+    """
     df_split = np.array_split(df, n_cores)
     pool = mp.Pool(n_cores)
     df = pd.concat(pool.map(func, df_split))
@@ -57,12 +67,12 @@ def parallelize_dataframe(df:pd.DataFrame, func, n_cores=mp.cpu_count())->pd.Dat
 # Color Section
 ######################################################################################################
 
-def text_cleaner(colors: str)->str:
-    '''
+def color_text_cleaner(colors: str)->str:
+    """
     Input: colors(str), format {"Colours_1", "Colours_2"}
     Function: text processing and get the colour information separated by comma ','
     Output: Colours(str), format "colours_1, colours_2"
-    '''
+    """
     temp = (colors.lower().removeprefix("{").removesuffix("}"))
     res = re.sub('"', "", re.sub("/",",",temp))
     return res
@@ -79,7 +89,7 @@ def reset_colors_format(df: pd.DataFrame):
             df.loc[row,'colors'] = ""
             continue
         e = df.loc[row]["colors"]
-        c = text_cleaner(e)
+        c = color_text_cleaner(e)
         df.loc[row,'colors'] = c
 
 def requery_color_name(df: pd.DataFrame)->None:
@@ -105,7 +115,7 @@ def requery_color_name(df: pd.DataFrame)->None:
                 colorname= " ".join([e.capitalize() for e in item.split(" ")])
                 res.add(colorname + " (" + colorname_to_hex_map.get(item) + ")")
             else:
-            #Method 2: if we can not find the colors_name locally, we will send requery to the website colorsname.org to see if they have the name. Else we will treat it as pattern info
+            #Method 2: if we can not find the colors_name locally, we will send query to the website colorsname.org to see if they have the name. Else we will treat it as pattern info
                 URL = "https://colornames.org/search/results/?type=exact&query="
                 URL += item
                 try:
@@ -128,6 +138,9 @@ from colormath.color_diff import delta_e_cie2000
 from PIL import ImageColor
 
 class Color:
+    """
+    Class Color: for encapsulate all related color infomation.
+    """
     def __init__(self, color_string:str):
         assert color_string != None
         color_info = color_string.split(" (")
@@ -455,6 +468,7 @@ def restruct_dataset(file_path:str) -> pd.DataFrame:
     return df
     
 def match_process(df:pd.DataFrame):
+    
     #build data series from all categories.
     pre_defiened_labels = pd.Series(list(all_cat), name="pre_defined_label")
     #get 80% most_similar_mathes(dataframe) by using package string-matcher
@@ -505,9 +519,7 @@ def match_process(df:pd.DataFrame):
 
     def is_nan_string(string):
         return string == ""
-    #w = df.loc[66, ["match_most_similar_>80%_string"]].item()
-    #print(w)
-    #is_nan_string(w)
+    
     for row in range(df.shape[0]):
         word_80 = df.loc[row]["match_most_similar_>80%_string"]
         word_60 = df.loc[row]["match_most_similar_>60%_string"]
@@ -550,8 +562,9 @@ def match_process(df:pd.DataFrame):
             df.loc[row, "label_2nd"] = label3_to_label2_map.get(key)
     
     reset_colors_format(df)
+    print("Working on color_name query -- %s seconds " % (time.time() - start_time))
     requery_color_name(df)
-    
+    print("Working on color_name match query -- %s seconds " % (time.time() - start_time))
     colour_mapping(df)
     
     summary_of_the_new_df(df)
@@ -562,13 +575,16 @@ def match_process(df:pd.DataFrame):
 def main():
     #iniyilize all maps and sets.
     initiailize_containers()
-    file_path = "./test_input.csv"
+    
+    file_path = "products-June-28th.csv"
+    #df = pd.read_csv(file_path)
+    print("Working on restruct_dataset -- %s seconds " % (time.time() - start_time))
     df = restruct_dataset(file_path)
     #df = parallelize_dataframe(df, match_process, mp.cpu_count())
-    
+    print("Working on match_process -- %s seconds " % (time.time() - start_time))
     new_df = match_process(df)
-    #match_process(df)
-    new_df.to_csv("test_output.csv", index=False)
+
+    new_df.to_csv("processed_dataset.csv", index=False)
     
 main()
 print("%s seconds " % (time.time() - start_time))
