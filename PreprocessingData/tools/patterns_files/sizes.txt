@@ -6,3 +6,10 @@
 "Med"
 "medium"
 "large"
+"XL"
+"XXL"
+"XXXL"
+"3XL"
+"4XL"
+"5XL"
+

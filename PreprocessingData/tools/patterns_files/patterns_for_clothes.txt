@@ -71,7 +71,6 @@ conversational
 coral
 counterchange
 damask
-designer
 diagonal
 diamond  
 diaper  
@@ -134,7 +133,7 @@ overall
 paisley  
 palmette
 patrioric
- ed ground
+ed ground
 pencil stripes
 pet  
 pheasant's eye

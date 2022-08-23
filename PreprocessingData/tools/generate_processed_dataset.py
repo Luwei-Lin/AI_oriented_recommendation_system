@@ -570,7 +570,12 @@ def match_process(df:pd.DataFrame):
     summary_of_the_new_df(df)
     return df
     
-
+def assign_label3(str):
+    if pd.isna(str):
+        return ""
+    else:
+        str = " ".join([s.capitalize() for s in str.split(" ")])
+        return str
 
 def main():
     #iniyilize all maps and sets.
@@ -583,7 +588,8 @@ def main():
     #df = parallelize_dataframe(df, match_process, mp.cpu_count())
     print("Working on match_process -- %s seconds " % (time.time() - start_time))
     new_df = match_process(df)
-
+    new_df['label_3rd'] = new_df['match_most_similar_>80%_string'].parallel_apply(assign_label3)
+    
     new_df.to_csv("processed_dataset.csv", index=False)
     
 main()
