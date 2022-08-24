@@ -25,7 +25,7 @@ patterns_words = set()
 colors_words = set()
 sizes_words = set()
 
-nlp = spacy.load("en_core_web_lg")
+nlp = spacy.load("en_core_web_sm")
 entity_rulers = nlp.add_pipe("entity_ruler", validate=True)
 nlp.remove_pipe("ner")
 
@@ -123,7 +123,36 @@ def initilialize_containers():
     patterns_words = list(patterns_words)
     sizes_words = list(sizes_words)
 
+    tops_patterns = []
+    tops_phrases_words = []
+    tops_single_words = []
+    for item in tops_words:
+        if len(item.split()) > 1:
+            tops_phrases_words.append(item)
+        else:
+            tops_single_words.append(item)
+    for item in tops_phrases_words:
+        t = {"label": "TOPS", "pattern": [p for word in item.split() for p in check_puct(word)], "id": item}
+        tops_patterns.append(t)
+        
+    for word in tops_single_words:
+        t = {"label": "TOPS", "pattern": [p for p in check_puct(word)], "id":word}
+        tops_patterns.append(t)
 
+    for item in tops_phrases_words:
+        t = {"label": "TOPS", "pattern": [p for word in item.split() for p in check_puct_and_lower_pattern(word)], "id": item}
+        tops_patterns.append(t)
+        
+    for word in tops_single_words:
+        t = {"label": "TOPS", "pattern": [p for p in check_puct_and_lower_pattern(word)], "id":word}
+        tops_patterns.append(t)
+        
+    for item in tops_patterns:
+        try:
+            entity_rulers.add_patterns([item])
+        except ValueError:
+            print(item)
+            
     shoes_patterns = []
     shoes_phrases_words = []
     shoes_single_words = []
@@ -431,7 +460,7 @@ def initilialize_containers():
             entity_rulers.add_patterns([item])
         except:
             print(item)
-            
+    
 class Training_sample:
     annotations_count = {}
     text = ""
@@ -576,7 +605,7 @@ def evaluate_model():
     
 def main():
     initilialize_containers()
-    
+    nlp.to_disk("./output_rule_based_model")
     ########for debugging use#####
     #text = input()
     #print(parse_train_data(text))
@@ -590,5 +619,15 @@ def main():
     train_spacy()
     #model will save to ./output_model
     evaluate_model()
+    
 # run the program
-# main()
+def test(product_description: str):
+    initilialize_containers()
+    doc1 = nlp(product_description)
+    ents = []
+    for ent in doc1.ents:
+        ents.append((ent.start_char, ent.end_char, ent.text, ent.label_))
+    print(doc1.text, ents)
+    nlp.to_disk("./output_rule_based_model")
+
+main()
