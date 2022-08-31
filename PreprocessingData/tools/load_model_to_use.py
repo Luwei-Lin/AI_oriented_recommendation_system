@@ -13,8 +13,10 @@ def test_the_input(product_description:str):
     for ent in doc1.ents:
         ents.append((ent.start_char, ent.end_char, ent.text, ent.label_))
     print(doc1.text, ents)
-    #displacy.serve([doc1], options=e.get_entity_options(),style="ent", port=5000, host="127.0.0.1")
-    #type 127.0.0.1:5000 on the webbroswer
-
-example = "bohemian "
+    displacy.serve([doc1], options=e.get_entity_options(),style="ent", port=5000, host="127.0.0.1")
+    
+    # type 127.0.0.1:5000 on the webbroswer
+    # type cltr + c to cancel the program
+print("Below is the example:\n   (For the web, type 127.0.0.1:5000 on browser)")
+example = "(Example) Bohemian black men's jacket"
 test_the_input(example)
