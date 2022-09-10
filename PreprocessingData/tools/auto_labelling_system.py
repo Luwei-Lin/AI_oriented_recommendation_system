@@ -91,8 +91,9 @@ def auto_detect(text:str) -> Product:
     p.set_size(sizes)
     p.set_types(types)
     p.set_gender(gender)
-    
     return p
+def initilize_nlp_model(text:str):
+    
 
 def test():
     enter = input("Enter the text for detection ('q' for quit): ")
@@ -100,4 +101,3 @@ def test():
         product = auto_detect(enter)
         product.info()
         enter = input("Enter the text for detection ('q' for quit): " )
-test()
