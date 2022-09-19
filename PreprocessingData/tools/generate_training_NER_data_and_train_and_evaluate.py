@@ -605,16 +605,21 @@ def evaluate_model():
     
 def main():
     initilialize_containers()
-    nlp.to_disk("./output_rule_based_model")
+    #
+    #nlp.to_disk("./output_rule_based_model")
+    
     ########for debugging use#####
     #text = input()
     #print(parse_train_data(text))
     ########for debugging use#####
     
+
+    #########For creating trianing set##########
     #make sure the path of dataset is correct
-    df = pd.read_csv("./(V1.8)all_products_data_set.csv")
+    #df = pd.read_csv("./(V1.8)all_products_data_set.csv")
     #create training data to the directory ./train_data/
-    loop_dataset(df)
+    #loop_dataset(df)
+    #########For creating trianing set##########
     #start to train model based on dataset we created.
     train_spacy()
     #model will save to ./output_model
