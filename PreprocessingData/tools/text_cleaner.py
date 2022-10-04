@@ -1,5 +1,5 @@
 import re
-import lxml.html.clean
+from tkinter.messagebox import NO
 import unicodedata
 
 
@@ -56,7 +56,7 @@ def cleanHtml(html):
     cleantext = ""
     if not isinstance(html, str) or html is None:
         return cleantext
-    res = lxml.html.clean.clean_html(html)
+    #res = lxml.html.clean.clean_html(html)
     
     html = re.sub(re.compile(r"{.*?}"), " ", html)
     html = re.sub(re.compile(r"<.*?>"), " ", html)
@@ -85,11 +85,11 @@ def cleanHtml(html):
 
 '''
 Directly use the information from csv cells in ['title', 'tags', 'body_html']
-return pre-processing raw_text
+return pre-processing raw_text without "FEATURE"
 '''
-def raw_content(title, tags, body_html, buckets):
+def raw_content(title=None, tags=None, body_html=None, buckets=None):
     
-    text_1 = clean_tags_text(None, None, None, None)
+    text_1 = clean_tags_text(title, tags, None, buckets)
     text_2 = cleanHtml(body_html)
 
     raw_text = text_1 + '. ' + text_2
@@ -110,7 +110,7 @@ def test():
     tags = "{d-cup+,meta-size-chart-artesands-size-guide,moderate-coverage,one-piece,plus-size,swim-wear}"
     body_html = '"<meta charset="utf-8"><p><meta charset="utf-8"><span>The Hues Underwire One Piece has a beautifully sculpted feminine wrap-around style. The Hue has a hidden shelf bra with internal support underwire to fit a D cup to DD cup. This swimsuit style allows all of the fit and support required for body sculpting and figure forming confidence for the curvy body. </span></p><p data-mce-fragment="1"><meta charset="utf-8"><em data-mce-fragment="1">Model is wearing an Australian size 18+ </em></p><p class="p1" data-mce-fragment="1"><b data-mce-fragment="1">FEATURES:</b></p><ul class="ul1" data-mce-fragment="1"><li class="li1" data-mce-fragment="1">Supportive Underwire  <br data-mce-fragment="1"></li><li class="li1" data-mce-fragment="1">Removable &amp; Adjustable Straps  </li><li class="li1" data-mce-fragment="1">Front Ruching <br data-mce-fragment="1"></li><li class="li1" data-mce-fragment="1">D/DD Cup Underwire Support <br data-mce-fragment="1"></li><li class="li1" data-mce-fragment="1"> <div data-mce-fragment="1">Nylon / Elastane Blend. </div></li></ul><div class="p2" style="text-align: center;" data-mce-style="text-align: center;" data-mce-fragment="1"><b data-mce-fragment="1"><span data-mce-fragment="1">Artesands Fits Your Curves. Designed in Australia. </span></b></div><h5 style="text-align: left;" data-mce-fragment="1"><strong>Care Notes</strong></h5><p><strong></strong>We recommend hand washing in cold water. Dry flat in a shady spot out of direct sunlight. Do not wring out or hang dry. </p><p>Chlorinated water is not great and can cause colours to fade. Please make sure you always wash your swimsuit well after swimming in chlorinated water. We recommend swimsuit cleaner to keep your swimsuit looking amazing.</p>"'
     buckets = "{Casual,ActiveWear,Streetwear}"
-    print(raw_content(title, tags, body_html, None))
+    print(raw_content(title, None, body_html, None))
 '''
 When you use the test() which used the raw_content() only. You can directly use the  
 Output:Aria High Waist; d cup+ meta size chart artesands size guide moderate coverage one piece plus size swim wear. The Hues Underwire One Piece has a beautifully sculpted feminine wrap-around style. The Hue has a hidden shelf bra with internal support underwire to fit a D cup to DD cup. This swimsuit style allows all of the fit and support required for body sculpting and figure forming confidence for the curvy body. Model is wearing an Australian size 18+ FEATURES:Supportive Underwire  Removable and; Adjustable Straps  Front Ruching D/DD Cup Underwire Support  Nylon / Elastane Blend. Artesands Fits Your Curves. Designed in Australia. Care NotesWe recommend hand washing in cold water. Dry flat in a shady spot out of direct sunlight. Do not wring out or hang dry. Chlorinated water is not great and can cause colours to fade. Please make sure you always wash your swimsuit well after swimming in chlorinated water. We recommend swimsuit cleaner to keep your swimsuit looking amazing.
