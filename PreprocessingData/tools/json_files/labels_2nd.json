@@ -109,9 +109,10 @@
             "Tank Top",
             "Tank", 
             "Raverback tank"],
-        "Sweaters":[ 
+        "Sweaters":[
+            "Cover up",
             "Hoodies", 
-            "Sweatshirt", 
+            "Sweatshirt",
             "Sweaters",
             "Cardigans",
             "Vests",
@@ -136,7 +137,6 @@
             "Bikini top",
             "Bikini bottom",
             "Tankini",
-            "Cover up",
             "Swimwear cleaners",
             "Swimsuit",
             "Swim trunks",

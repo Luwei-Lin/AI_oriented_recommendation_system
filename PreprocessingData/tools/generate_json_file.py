@@ -216,6 +216,7 @@ def initialize_container():
         assert item_list != None
         for item in item_list:
             label3_to_label2_map.update({item: "Homeware"})
+    print("not in specific_product_map_to_num ", end=" ")
     for k in label3_to_label2_map.keys():
         if k not in specific_products_map_to_num.keys():
             print(k)
@@ -237,4 +238,4 @@ def main():
     initialize_container()
     print("The whole provess takes %s seconds " % (time.time() - start_time))
     save_to_json()
-main()
+#main()

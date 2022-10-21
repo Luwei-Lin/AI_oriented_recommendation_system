@@ -1,1 +1,11 @@
-{"shoes": 1, "tops": 2, "bottoms": 3, "other_clothing": 4, "beauty": 5, "accessories": 6, "homeware": 7, "others": 8, "unknown": 0}
+{
+    "shoes": 1,
+    "tops": 2,
+    "bottoms": 3,
+    "other_clothing": 4,
+    "beauty": 5,
+    "accessories": 6,
+    "homeware": 7,
+    "others": 8,
+    "unknown": 0
+}
