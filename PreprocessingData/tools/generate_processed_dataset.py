@@ -1,7 +1,7 @@
 
 #################################################################
-# This script can generate processed_dataset.csv from original.csv, which including html_cleaner, color_similarity_matching(colors-standardization), 
-# product_similarity_mapping(product-standardization) 
+# This script can generate processed_dataset.csv from original.csv, which including a). html_cleaner, b). color_similarity_matching(colors-standardization), 
+# c). product_similarity_mapping(product-standardization) 
 # 1. product_labels are separated to three layers, the first layer is the main categories, the second layer is the sub-category, and the third layer(optional) is the details of the product-name
 # 2. colour_labels are the results from colour-name query to colornames.org and color-distance similarity algorithm calculation, which is a color standardization process.
 # 3. html_cleaner will extract product description (raw_text based) and save content in 'raw_text' column
