@@ -1,81 +1,49 @@
-# Multiple Labels Map
 
-## 1. Gender map
+# Automatic Labelling Traing Dataset Script
+This file will explain how to create preprocessed training dataset from raw .csv file(retrive from DB) and pre-determined categories .json file (manually design). 
 
-|gender       | number  |
-|-------------|---------|
-|Unknown      |    0    |
-|Men          |    1    |
-|Women        |    2    |
-|Boys         |    3    |
-|girls        |    4    |
-|Neutral      |    5    |
-  
-## 2. Colour Map
+1.  There are some columns requirements of .csv. 
+   
+2.  Some comments for .json file prepared. There are some layers required for .json file. The easiest way to modified the .json file is to directly modify the conetent in the existing label_2nd.json since this .json is how you want to determine your product types and modify the categories and sub-categories of products. And we suppose the product types are divieded into three layers which includes three main categories (1st layer),  and 378 detail categories(3rd layer). 
+### 1.
+## The materials you need to operate scripts 
 
-|color     |number|
-| -------- | ------ |
-|Unknown   |    0    |
-|Black     |1|
-|Blue      |2|
-|Brown     |3|
-|Green     |4|
-|Grey      |5|
-|Orange    |6|
-|Pink      |7|
-|Purple    |8|
-|Red       |9|
-|Tan       |10|
-|White     |11|
-|Yellow    |12|
 
-## 3. Pattern Map
 
-|pattern   |number|
-| ------------ | ------ |
-|Unknown      |    0    |
-|Abstract     |1|
-|Camouflage   |2|
-|Checks & Plaid|3|
-|Floral    |4|
-|Graphic   |5|
-|Spiro     |6|
-|Striped   |7|
-|Tweed     |8|
-|Denim     |9|
-|No Pattern|10|
 
-## 4. Bucket Map
+## Description
+Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-|bucket_type   | number |
-| ------------ | ------ |
-|Unknown       |    0   |
-|Athletic      |    1   |
-|Bohemian      |    2   |
-|Chic          |    3   |
-|Trendy        |    4   |
-|Casual        |    5   |
-|Vintage       |    6   |
-|MusicFestival |    7   |
-|Streetwear    |    8   |
-|HipHop        |    9   |
-|Rock          |    10  |
-|Punk          |    11  |
-|Elegant       |    12  |
-|Formal        |    13  |
-|Skater        |    14  |
-|other         |    15  |
+## Badges
+On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## 5. Product_Type Map
+## Visuals
+Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
-|product_type  | number|
-| ------------ | ------|
-|Unknown      |    0    |
-|Shoes         |   1   |
-|Tops          |   2   |
-|Bottoms       |   3   |
-|Other_clothing|   4   |
-|Beauty        |   5   |
-|Accessories   |   6   |
-|Homeware      |   7   |
-|Other         |   8   |
+## Installation
+Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+## Usage
+Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+
+## Support
+Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+
+## Roadmap
+If you have ideas for releases in the future, it is a good idea to list them in the README.
+
+## Contributing
+State if you are open to contributions and what your requirements are for accepting them.
+
+For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+
+You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+
+## Authors and acknowledgment
+Show your appreciation to those who have contributed to the project.
+
+## License
+For open source projects, say how it is licensed.
+
+## Project status
+If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
