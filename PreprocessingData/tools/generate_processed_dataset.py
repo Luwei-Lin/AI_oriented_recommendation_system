@@ -30,6 +30,8 @@ import time
 import requests
 from bs4 import BeautifulSoup
 import multiprocessing as mp
+from pathlib import Path
+from datetime import datetime
 #from pandarallel import pandarallel
 start_time = time.time()
 
@@ -113,7 +115,8 @@ def requery_color_name(df: pd.DataFrame)->None:
             #Method 1: if we can find the colors_name locally, then we just use this color name and hexCode 
             if colorname_to_hex_map.get(item) != None:
                 colorname= " ".join([e.capitalize() for e in item.split(" ")])
-                res.add(colorname + " (" + colorname_to_hex_map.get(item) + ")")
+                
+                res.add(colorname + " (" + (colorname_to_hex_map.get(item)) + ")")
             else:
             #Method 2: if we can not find the colors_name locally, we will send query to the website colorsname.org to see if they have the name. Else we will treat it as pattern info
                 URL = "https://colornames.org/search/results/?type=exact&query="
@@ -134,7 +137,7 @@ def requery_color_name(df: pd.DataFrame)->None:
 
 from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
-from colormath.color_diff import delta_e_cie2000
+from colormath import color_diff_matrix
 from PIL import ImageColor
 
 class Color:
@@ -154,7 +157,42 @@ class Color:
         
     def get_info(self) ->str:
         return self.name + " "+ self.hex_code
-    
+
+def _get_lab_color1_vector(color):
+    """
+    Converts an LabColor into a NumPy vector.
+
+    :param LabColor color:
+    :rtype: numpy.ndarray
+    """
+    if not color.__class__.__name__ == 'LabColor':
+        raise ValueError(
+            "Delta E functions can only be used with two LabColor objects.")
+    return np.array([color.lab_l, color.lab_a, color.lab_b])
+
+
+def _get_lab_color2_matrix(color):
+    """
+    Converts an LabColor into a NumPy matrix.
+
+    :param LabColor color:
+    :rtype: numpy.ndarray
+    """
+    if not color.__class__.__name__ == 'LabColor':
+        raise ValueError(
+            "Delta E functions can only be used with two LabColor objects.")
+    return np.array([(color.lab_l, color.lab_a, color.lab_b)])
+
+def delta_e_cie2000(color1, color2, Kl=1, Kc=1, Kh=1):
+    """
+    Calculates the Delta E (CIE2000) of two colors.
+    """
+    color1_vector = _get_lab_color1_vector(color1)
+    color2_matrix = _get_lab_color2_matrix(color2)
+    delta_e = color_diff_matrix.delta_e_cie2000(
+        color1_vector, color2_matrix, Kl=Kl, Kc=Kc, Kh=Kh)[0]
+    return np.ndarray.item(np.array(delta_e))
+
 def difference(color_1:Color, color_2:Color)->float:
     """
     Input: format("color_name": "color_hex_code"), for example, color_1 = (Color class)Navy (#000080), color_2 = (Color class)Blue (#0000ff)
@@ -179,21 +217,22 @@ def get_closest_color(unknown_color:Color)->int:
     Output: The cloest color in the list
     """
     assert unknown_color != None
-    #sort dict {color_num: int : color_distacne: float}
+    #sort dict {map_to_main_color: int : color_distacne: float}
     temp_distance_map = {}
     main_color = {1: 'Black (#000000)', 2: 'Blue (#0000ff)', 3: 'Brown (#964b00)', 4: 'Green (#00ff00)', 5: 'Grey (#808080)', 6: 'Orange (#ff8000)', 7: 'Pink (#ffc0cb)', 8: 'Purple (#800080)', 9: 'Red (#ff0000)', 10: 'Tan (#d2b48c)', 11: 'White (#ffffff)', 12: 'Yellow (#ffff00)'}
     for k, v in main_color.items():
         dist = difference (unknown_color, Color(v))
-        temp_distance_map.update({k:dist})
-        
-    sorted_dict = dict(sorted(temp_distance_map.items(), key=lambda item: item[1]))
+        # if we want to store num, we can change v to k next line.
+        temp_distance_map.update({v:dist})
     
+    sorted_dict = dict(sorted(temp_distance_map.items(), key=lambda item: item[1]))
+    #print(sorted_dict)
     return min(sorted_dict, key=sorted_dict.get)
 
-def from_color_info_to_color_num(color_info:str)->list:
+def from_color_info_to_map_to_main_color(color_info:str)->list:
     """
     Input: (str) color_info
-    Function: standarized from the color_info column to color_num
+    Function: standarized from the color_info column to map_to_main_color
     Output: (str)all relative nums (in the relative order)
     """
     assert isinstance(color_info, str) and color_info != ""
@@ -203,6 +242,7 @@ def from_color_info_to_color_num(color_info:str)->list:
     for item in color_info_list:
         curr = Color(item)
         res.append(get_closest_color(curr))
+    
     return res
     
 def colour_mapping(df_original: pd.DataFrame):
@@ -217,10 +257,10 @@ def colour_mapping(df_original: pd.DataFrame):
         if color_info == "":
             continue
         try:
-            color_num_str = ",".join(str(n) for n in from_color_info_to_color_num(color_info))
-            df_original.loc[row, "color_num"] = color_num_str
-        except:
-            print("Error: ", row, " color_info ", color_info )
+            map_to_main_color_str = ",".join(str(n) for n in from_color_info_to_map_to_main_color(color_info))
+            df_original.loc[row, "map_to_main_color"] = map_to_main_color_str
+        except TypeError: 
+            print("Type Error: ", row, " color_info ", color_info)
 
 #######################################################################################################
 # Product Names Standardization Section
@@ -358,52 +398,12 @@ def summary_of_the_new_df(df:pd.DataFrame)->None:
     Input: dataframe
     Function: to calculate some statistics data after pre-processing.
     '''
-    unknown = 0
-    totalnum = df.shape[0]
-    shoes = 0
-    other_clothing = 0
-    tops = 0
-    bottoms = 0
-    beauty = 0
-    home = 0
-    acc = 0
-    other = 0
-    label2_count = 0
-    for row in range(df.shape[0]):
-        n = df.loc[row, "label_1st"]
-        if n == 0:
-            unknown += 1
-        elif n == 1:
-            shoes += 1
-        elif n == 2:
-            tops += 1
-        elif n == 3:
-            bottoms += 1
-        elif n == 4:
-            other_clothing += 1
-        elif n == 5:
-            beauty += 1
-        elif n == 6:
-            acc += 1
-        elif n == 7:
-            home += 1
-        elif n == 8:
-            other += 1
-        m = df.loc[row]["label_2nd"]
-        if m != "" :
-            label2_count += 1
-        
-    print("unknown", unknown, "\t\tratio of all", unknown/totalnum)
-    total = totalnum - unknown
-    print("lable_2 ", label2_count, "\t\tratio", "{:10.2f}".format(label2_count/total) )
-    print("\nshoes", shoes,"\t\tratio", "{:10.2f}".format(shoes/total))
-    print("tops", tops, "\t\tratio", "{:10.2f}".format(tops/total))
-    print("bottoms", bottoms, "\t\tratio", "{:10.2f}".format(bottoms/total))
-    print("other_clothing", other_clothing,"\tratio", "{:10.2f}".format(other_clothing/total))
-    print("beauty", beauty, "\t\tratio", "{:10.2f}".format(beauty/total))
-    print("accessories", acc, "\tratio", "{:10.2f}".format(acc/total))
-    print("homeware", home, "\t\tratio", "{:10.2f}".format(home/total))
-    print("other", other, "\t\tratio", "{:10.2f}".format(other/total))
+    df.info()
+    print("Number maps to main categories: ")
+    print('0: Unknown, 1: Shoes, 2: Tops, 3: Bottoms, 4: Other_clothing 5: Beauty', '6: Accessories 7: Homeware 8: Others')
+    print(df.groupby('label_1st')['label_1st'].count().sort_values(ascending=False))
+    print(df.groupby('label_2nd')['label_2nd'].count().sort_values(ascending=False))
+
 
 def restruct_dataset(file_path:str) -> pd.DataFrame:
     original_file_path = file_path
@@ -425,12 +425,12 @@ def restruct_dataset(file_path:str) -> pd.DataFrame:
     df.insert(df.columns.get_loc("gender"), "label_2nd", "", allow_duplicates=True)
     df.insert(df.columns.get_loc("gender"), "label_3rd", "", allow_duplicates=True)
     df.insert(df.columns.get_loc("buckets"), "buckets_num", 0, allow_duplicates=True)
-    df.insert(df.columns.get_loc("url"), "color_num", 0, allow_duplicates=True)
+    df.insert(df.columns.get_loc("url"), "map_to_main_color", 0, allow_duplicates=True)
     df.insert(df.columns.get_loc("colors"), "color_info", "", allow_duplicates=True)
     df.insert(df.columns.get_loc("colors"), "pattern_info", "", allow_duplicates=True)
     df = df[["index","id", "title", "tags", "images", "gender","product_type", "product_type(modified)", \
         "main_category", "sub_category", "match_most_similar_>80%_string", "match_most_similar_>60%_string", \
-        "label_1st", "label_2nd","label_3rd", "buckets_num", "buckets", "pattern_info","color_num", \
+        "label_1st", "label_2nd","label_3rd", "buckets_num", "buckets", "pattern_info","map_to_main_color", \
         "color_info", "colors", "url", "body_html"]]
     df.insert(df.columns.get_loc("body_html"), "raw_text", "", allow_duplicates=True)
     for i in range(df.shape[0]):
@@ -538,7 +538,7 @@ def match_process(df:pd.DataFrame):
             if similar(word_60, pt_modified) > 0.14:
                 df.loc[row, "match_most_similar_>80%_string"] = word_60
     double_check_pairs_pt_word60_dic = dict(sorted(double_check_pairs_pt_word60_dic.items(), key=lambda item: item[1]))
-    print(double_check_pairs_pt_word60_dic)
+    #print(double_check_pairs_pt_word60_dic)
     # Algorithm 3(Optional): If both 80 60 are empty but the sub cat has the entry
     # We can map mannually the item to our match_most_similar_>80%_string
     for row in range(df.shape[0]):
@@ -576,23 +576,81 @@ def assign_label3(str):
     else:
         str = " ".join([s.capitalize() for s in str.split(" ")])
         return str
-
+def correct_gender(df_gender_labelled:pd.DataFrame, original_df:pd.DataFrame)->pd.DataFrame:
+    """
+    Correct current dataset gender column by our mannually labelled dataset manually_labelled_gender.csv
+    Args:
+        df_gender_labelled (pd.DataFrame): manuaully_labelled_data
+        original_df (pd.DataFrame): destination file to be modified
+    Return:
+        modified gender columns dataframe
+    """
+    for row in range(original_df.shape[0]):
+        id = 0
+        try:
+            id = original_df.loc[row, 'id']
+            original_df.loc[row, 'gender'] = df_gender_labelled.loc[df_gender_labelled.id == id, 'gender'].values[0]
+        except Exception as e:
+            print("ERROR: ", id, ' info: ', str(e))
+    return original_df
 def main():
     #iniyilize all maps and sets.
     initiailize_containers()
+    file_path = input('Enter the raw .csv file path: ')
+    gender_file_path = input('Enter the manually labelled gender .csv file path: ')
     
-    file_path = "products-June-28th.csv"
-    #df = pd.read_csv(file_path)
-    print("Working on restruct_dataset -- %s seconds " % (time.time() - start_time))
-    df = restruct_dataset(file_path)
+    p = Path(file_path)
+    quit = False
+    #prompt correct .json path
+    while not p.exists() or file_path == '' and quit == False:
+        file_path = input("Wrong Path, Re-Enter the database path or enter 'quit()' for quit: ")
+        if file_path == 'quit()':
+            print("User wants to quit automatic training dataset generator. Exit")
+            return
+        p = Path(file_path)
+    
+    p2 = Path(gender_file_path)
+    while not p2.exists() or gender_file_path == '' and quit == False:
+        gender_file_path = input("Wrong gender_file_Path, Re-Enter the database path or enter 'quit()' for quit: ")
+        if file_path == 'quit()':
+            print("User wants to quit automatic training dataset generator. Exit")
+            return
+        p2 = Path(file_path) 
+
+    print("Working on constructing dataset -- %s seconds " % (round(time.time() - start_time, 2)))
+    df = pd.DataFrame()
+    try:
+        df = restruct_dataset(file_path)
+    except Exception as e:
+        print("Error 1: re-construct dataset error" + str(e))
     #df = parallelize_dataframe(df, match_process, mp.cpu_count())
-    print("Working on match_process -- %s seconds " % (time.time() - start_time))
-    new_df = match_process(df)
-    new_df['label_3rd'] = new_df['match_most_similar_>80%_string'].parallel_apply(assign_label3)
+    print("Working on match_process -- %s seconds " % (round(time.time() - start_time, 2)))
     
-    new_df.to_csv("processed_dataset.csv", index=False)
+    new_df = pd.DataFrame()
+    try:
+        new_df = match_process(df)
+        new_df['label_3rd'] = new_df['match_most_similar_>80%_string']#.parallel_apply(assign_label3)
+    except Exception as e:
+        print("Error 2: Match and standaization process of dataset error" + str(e))
+        print('Cache result will be saved to temporary_dataset_phase1.csv to save time for retrying later')
+        df.to_csv('temporary_dataset_phase1.csv', index=False)
     
-main()
-print("%s seconds " % (time.time() - start_time))
+    df_gender_labelled = pd.DataFrame()
+    final_df = pd.DataFrame()
+    try:
+        df_gender_labelled = pd.read_csv('./manually_labelled_gender.csv')
+        final_df = correct_gender(df_gender_labelled=df_gender_labelled, original_df=new_df)
+        
+    except Exception as e:
+        print("Error 2: Match and standaization process of dataset error" + str(e))
+        print('Cache result will be saved to temporary_dataset_phase2.csv to save time for retrying later')
+        new_df.to_csv('temporary_dataset_phase2.csv', index=False)
+    
+    file_name = 'processed_dataset_' + datetime.now().strftime('%m_%d_%Y')+'.csv'
+    final_df.to_csv(file_name, index=False)
+
+if __name__ == "__main__":
+    main()
+    print("Whole process successfully has done in %s seconds " % round((time.time() - start_time), 2))
     
     

@@ -599,9 +599,10 @@ def train_spacy():
 
 def evaluate_model():
     print("evaluating model-best...")
-    os.system("python -m spacy evaluate ./output_model/model-best ./train_data/evaluate.spacy")
+    
+    os.system("python -m spacy evaluate ./output_NER_model/model-best ./train_data/evaluate.spacy")
     print("evaluating model-last...")
-    os.system("python -m spacy evaluate ./output_model/model-last ./train_data/evaluate.spacy")
+    os.system("python -m spacy evaluate ./output_NER_model/model-last ./train_data/evaluate.spacy")
     
 def main():
     initilialize_containers()

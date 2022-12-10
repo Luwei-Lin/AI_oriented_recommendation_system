@@ -1,22 +1,23 @@
 
 # Automatic Labelling Traing Dataset Script
-This file will explain how to create preprocessed training dataset from raw .csv file(retrive from DB) and pre-determined categories .json file (manually design). 
-
-1.  There are some columns requirements of .csv. 
-   
-2.  Some comments for .json file prepared. There are some layers required for .json file. The easiest way to modified the .json file is to directly modify the conetent in the existing label_2nd.json since this .json is how you want to determine your product types and modify the categories and sub-categories of products. And we suppose the product types are divieded into three layers which includes three main categories (1st layer),  and 378 detail categories(3rd layer). 
-### 1.
-## The materials you need to operate scripts 
-
-
-
-
 ## Description
+The document will explain how to create preprocessed training dataset from raw .csv file (retrived from Database) and pre-determined categories .json file (manually design the pairs). And then use the prepossed trainset to train the Name_entity_recognizer model and the text classifier. 
+
+1.  There are some columns requirements of .csv files. Usually this table can be retrived directly from database. The table should contain at least cols **['id', 'title', 'product_type', 'gender', 'colors', 'body_html']** (should be exactlly same column name). Those columns will be processed by algo to generate processed dataset including product types standaization, color mapping, etc.
+   
+2.  Some comments for .json file prepared. There are some layers required for .json file. The easiest way to modified the .json file is to directly modify the contents in the existing label_2nd.json since this .json is how you want to determine your product types and modify the categories and sub-categories of products. And we suppose the product types are divieded into **three layers pairs** which includes three main categories (1st layer), 58 sub-categories (2nd layer) and 378 detail categories(3rd layer). 
+   
+## The procedure order to operate scripts
+   Before running the **generate_processed_dataset.py**, you must run the **generate_json_file** to create temperally necessary dictionaries which chould be used as the predetermined product type relationship (the product categories you want to normalize). 
+   1. generate_json_file.py (related path: json_files)
+   2. generate_processed_dataset.py (related path: current directory)
+   3. generate_training_NER_data_and_train_and_evaluate.py (related path: ./output_model and ./train_data)
+   4. gender_detector_training.py (related path: current directory) 
+
 Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
+## Note:
+1. numpy version should be < 1.23 since color compared method could have 
 ## Visuals
 Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
